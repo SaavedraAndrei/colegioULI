@@ -244,12 +244,12 @@ return [
         ['header' => 'Administrar finanzas'],
         [
             'text' => 'Ingresos',
-            'url'  => 'admin/settings',
+            'route'  => 'ingresos.index',
             'icon' => 'fas fa-fw fa-coins',
         ],
         [
             'text' => 'Egresos',
-            'url'  => 'admin/settings',
+            'route'  => 'egresos.index',
             'icon' => 'fas fa-fw fa-hand-holding-usd',
         ],
         [

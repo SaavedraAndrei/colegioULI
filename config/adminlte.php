@@ -238,7 +238,7 @@ return [
         ],
         [
             'text' => 'Registrar usuario',
-            'url'  => '/registrar',
+            'route'  => 'users.index',
             'icon' => 'fas fa-fw fa-user-plus',
         ],
         ['header' => 'Administrar finanzas'],

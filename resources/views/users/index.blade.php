@@ -20,11 +20,12 @@
 
 
     <div class="card">
-
-        <div class="card-header">
-            <a href="{{route('users.create')}}" class="btn btn-primary">Registrar a un nuevo usuario</a>
-        </div>
-
+        @if ($id == 1)
+            <div class="card-header">
+                <a href="{{route('users.create')}}" class="btn btn-primary">Registrar a un nuevo usuario</a>
+            </div>
+        @endif
+        
         <div class="card-body">
             <table class="table table-striped">
                 <thead>

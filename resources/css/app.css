@@ -1,3 +1,9 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
+
+
+.boton-cancelado{
+    background-color: aqua!important;
+    color: red;
+}

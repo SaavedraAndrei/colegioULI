@@ -32,7 +32,7 @@
 
             <div class="form-group">
                 {!! Form::label('password', 'Contraseña', ['class' => 'nombre_form']) !!}
-                {!! Form::password('password', ['class' => 'form-control', 'placeholder' => 'Ingrese el password de la nueva cuenta', 'type' => 'password', 'class' => 'form-control']) !!}
+                {!! Form::password('password', ['class' => 'form-control', 'placeholder' => 'Ingrese la contraseña de la nueva cuenta', 'type' => 'password', 'class' => 'form-control']) !!}
 
                 @error('password')
                     <span class="text-danger">{{$message}}</span>
@@ -40,9 +40,9 @@
             </div>
 
             <div class="form-group">
-                {!! Form::label('rol', 'Rol', ['class' => 'nombre_form']) !!}
-                {!! Form::select('size', ['administrador' => 'Administrador', 'secretario' => 'Secretario', 'contador' => 'Contador'], null, ['placeholder' => 'Escoge el rol del usuario', 'class' => 'form-control']);
-                !!}
+                
+                {!! Form::label('rol', 'Rol') !!}
+                {!! Form::select('rol', $roles, null, ['class' => 'form-control', 'placeholder' => 'Elige el rol del usuario']) !!}                
 
                 @error('rol')
                     <span class="text-danger">{{$message}}</span>

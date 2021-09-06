@@ -232,12 +232,12 @@ return [
 
         ['header' => 'Administrar cuenta'],
         [
-            'text' => 'profile',
+            'text' => 'Editar Perfil',
             'url'  => 'user/profile',
             'icon' => 'fas fa-fw fa-user',
         ],
         [
-            'text' => 'Registrar usuario',
+            'text' => 'Usuarios',
             'route'  => 'users.index',
             'icon' => 'fas fa-fw fa-user-plus',
         ],

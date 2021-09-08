@@ -11,6 +11,7 @@
         <div class="card-body">
             {!! Form::model($ingreso, ['route' => ['ingresos.update', $ingreso], 'method' => 'PUT']) !!}
 
+            
             <div class="form-group">
                 {!! Form::label('NumRecibo', 'Número de recibo', ['class' => 'nombre_form']) !!}
                 {!! Form::text('NumRecibo', null, ['class' => 'form-control', 'placeholder' => 'Ingrese el número de recibo']) !!}
@@ -21,29 +22,30 @@
             </div>
 
             <div class="form-group">
-                {!! Form::label('Tipo', 'Tipo', ['class' => 'nombre_form']) !!}
-                {!! Form::text('Tipo', null, ['class' => 'form-control', 'placeholder' => 'Ingrese el nombre del alumno']) !!}
+                
+                {!! Form::label('tipo', 'Tipo de Ingreso') !!}
+                {!! Form::select('tipo', $tipos, null, ['class' => 'form-control', 'placeholder' => 'Seleccione el tipo de ingreso']) !!}                
 
-                @error('Tipo')
+                @error('tipo')
                     <span class="text-danger">{{$message}}</span>
                 @enderror
             </div>
                 
 
             <div class="form-group">
-                {!! Form::label('idCliente', 'Cliente', ['class' => 'nombre_form']) !!}
-                {!! Form::text('idCliente', null, ['class' => 'form-control', 'placeholder' => 'Ingrese el nombre del alumno']) !!}
+                {!! Form::label('idAlumno', 'Alumno', ['class' => 'nombre_form']) !!}
+                {!! Form::text('idAlumno', null, ['class' => 'form-control', 'placeholder' => 'Ingrese al alumno']) !!}
 
-                @error('idCliente')
+                @error('idAlumno')
                     <span class="text-danger">{{$message}}</span>
                 @enderror
             </div>
 
             <div class="form-group">
-                {!! Form::label('idPersonal', 'Personal', ['class' => 'nombre_form']) !!}
-                {!! Form::text('idPersonal', null, ['class' => 'form-control', 'placeholder' => 'Ingrese el nombre del alumno']) !!}
+                {!! Form::label('pago', 'Monto del Pago', ['class' => 'nombre_form']) !!}
+                {!! Form::text('pago', null, ['class' => 'form-control', 'placeholder' => 'Ingrese el monto del pago']) !!}
 
-                @error('idPersonal')
+                @error('pago')
                     <span class="text-danger">{{$message}}</span>
                 @enderror
             </div>

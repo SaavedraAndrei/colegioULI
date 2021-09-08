@@ -38,6 +38,45 @@
                     <span class="text-danger">{{$message}}</span>
                 @enderror
             </div>
+
+            <div class="form-group">
+                {!! Form::label('dni', 'DNI', ['class' => 'nombre_form']) !!}
+                {!! Form::text('dni', null, ['class' => 'form-control', 'placeholder' => 'Ingrese el DNI del alumno']) !!}
+
+                @error('dni')
+                    <span class="text-danger">{{$message}}</span>
+                @enderror
+            </div>
+
+            <div class="form-group">
+                
+                {!! Form::label('genero', 'Género') !!}
+                {!! Form::select('genero', $generos, null, ['class' => 'form-control', 'placeholder' => 'Seleccione el género del alumno']) !!}                
+
+                @error('genero')
+                    <span class="text-danger">{{$message}}</span>
+                @enderror
+            </div>
+
+            <div class="form-group">
+                
+                {!! Form::label('nivel', 'Nivel') !!}
+                {!! Form::select('nivel', $niveles, null, ['class' => 'form-control', 'placeholder' => 'Seleccione el nivel del alumno']) !!}                
+
+                @error('nivel')
+                    <span class="text-danger">{{$message}}</span>
+                @enderror
+            </div>
+
+            <div class="form-group">
+                
+                {!! Form::label('seccion', 'Sección') !!}
+                {!! Form::select('seccion', $secciones, null, ['class' => 'form-control', 'placeholder' => 'Seleccione la sección del alumno']) !!}                
+
+                @error('seccion')
+                    <span class="text-danger">{{$message}}</span>
+                @enderror
+            </div>
                
 
             <div class="form-group">

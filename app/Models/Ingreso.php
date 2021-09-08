@@ -10,6 +10,6 @@ class Ingreso extends Model
     use HasFactory;
 
     protected $fillable = [
-        'NumRecibo', 'Tipo', 'idCliente', 'idPersonal',
+        'NumRecibo', 'Tipo', 'idAlumno', 'pago','idPersonal',
     ];
 }

@@ -33,6 +33,11 @@
                         <th>Nombre</th>
                         <th>Apellido Paterno</th>
                         <th>Apellido Materno</th>
+                        <th>DNI</th>
+                        <th>Género</th>
+                        <th>Nivel</th>
+                        <th>Sección</th>
+                        <th>Monto Pagado</th>
                     </tr>
                 </thead>
 
@@ -43,6 +48,11 @@
                             <td>{{$alumno->Nombres}}</td>
                             <td>{{$alumno->ApellPaterno}}</td>
                             <td>{{$alumno->ApellMaterno}}</td>
+                            <td>{{$alumno->dni}}</td>
+                            <td>{{$alumno->genero}}</td>
+                            <td>{{$alumno->nivel}}</td>
+                            <td>{{$alumno->seccion}}</td>
+                            <td>{{$alumno->montoPagado}}</td>
                             <td width="10px">
                                 <a class="btn btn-primary" href="{{route('alumnos.edit', $alumno->id)}}">Editar</a>
                             </td>

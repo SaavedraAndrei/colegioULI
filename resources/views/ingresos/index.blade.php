@@ -31,9 +31,11 @@
                     <tr>
                         <th>ID</th>
                         <th>Número de Recibo</th>
+                        <th>DNI Alumno</th>
                         <th>Tipo</th>
-                        <th>idCliente</th>
-                        <th>idPersonal</th>
+                        <th>Fecha</th>
+                        <th>Pago</th>
+                        <th>ID Personal</th>
                     </tr>
                 </thead>
 
@@ -42,16 +44,19 @@
                         <tr>
                             <td>{{$ingreso->id}}</td>
                             <td>{{$ingreso->NumRecibo}}</td>
+                            <td>{{$ingreso->dni}}</td>
                             <td>{{$ingreso->Tipo}}</td>
-                            <td>{{$ingreso->idCliente}}</td>
+                            <td>{{$ingreso->created_at}}</td>
+                            <td>{{$ingreso->pago}}</td>
                             <td>{{$ingreso->idPersonal}}</td>
+
                             <td width="10px">
                                 <a class="btn btn-primary" href="{{route('ingresos.edit', $ingreso->id)}}">Editar</a>
                             </td>
                             <td width="10px">
                                 <form action="{{route('ingresos.destroy', $ingreso->id)}}" method="POST">
                                     @csrf
-                                    @method('delete')
+                                     @method('delete')
 
                                     <button class="btn btn-danger" type="submit">Eliminar</button>
                                 </form>

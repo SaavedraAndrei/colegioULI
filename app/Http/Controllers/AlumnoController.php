@@ -26,7 +26,26 @@ class AlumnoController extends Controller
      */
     public function create()
     {
-        return view('alumnos.create');
+        $niveles = [
+            'inicial' => 'Inicial',
+            'primaria' => 'Primaria',
+            'secundaria' => 'Secundaria',
+        ];
+
+        $secciones = [
+            'primero-A' => 'Primero-A',
+            'segundo-A' => 'Segundo-A',
+            'tercero-A' => 'Tercero-A',
+            'cuarto-A' => 'Cuarto-A',
+            'quinto-A' => 'Quinto-A',
+        ];
+
+        $generos = [
+            'M' => 'Masculino',
+            'F' => 'Femenino',
+        ];
+
+        return view('alumnos.create', compact('generos', 'niveles', 'secciones'));
     }
 
     /**
@@ -41,6 +60,10 @@ class AlumnoController extends Controller
             'Nombres' =>'required',
             'ApellPaterno' => 'required',
             'ApellMaterno' => 'required',
+            'dni' => 'required',
+            'genero' => 'required',
+            'nivel' => 'required',
+            'seccion' => 'required'
         ]);
 
         $alumno = Alumno::create($request->all());
@@ -67,7 +90,26 @@ class AlumnoController extends Controller
      */
     public function edit(Alumno $alumno)
     {
-        return view('alumnos.edit', compact('alumno'));
+        $generos = [
+            'M' => 'Masculino',
+            'F' => 'Femenino',
+        ];
+
+        $niveles = [
+            'Inicial' => 'Inicial',
+            'Primaria' => 'Primaria',
+            'Secundaria' => 'Secundaria',
+        ];
+
+        $secciones = [
+            'primero-A' => 'Primero-A',
+            'segundo-A' => 'Segundo-A',
+            'tercero-A' => 'Tercero-A',
+            'cuarto-A' => 'Cuarto-A',
+            'quinto-A' => 'Quinto-A',
+        ];
+
+        return view('alumnos.edit', compact('alumno', 'generos', 'niveles', 'secciones'));
     }
 
     /**
@@ -83,6 +125,10 @@ class AlumnoController extends Controller
             'Nombres' =>'required',
             'ApellPaterno' => 'required',
             'ApellMaterno' => 'required',
+            'dni' => 'required',
+            'genero' => 'required',
+            'nivel' => 'required',
+            'seccion' => 'required'
         ]);
 
         $alumno->update($request->all());

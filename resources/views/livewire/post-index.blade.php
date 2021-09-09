@@ -15,9 +15,14 @@
         <div class="card-header">
             <a href="{{route('ingresos.create')}}" class="btn btn-primary">Registrar ingreso</a>
         </div>
-        
+ 
         <div class="card-header">
-            <input wire:model="search" type="text" class="form-control" placeholder="Ingrese el número de recibo del ingreso">
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="basic-addon1"><i class="fas fa-search"></i></span>
+                </div>
+                <input wire:model="search" type="text" class="form-control" placeholder="Ingrese el número de recibo del ingreso">    
+            </div>
         </div>
 
         @if ($ingresos->count())
@@ -46,18 +51,18 @@
                                 <td>{{$ingreso->pago}}</td>
                                 <td>{{$ingreso->idPersonal}}</td>
 
-                                <td width="10px">
-                                    <a class="btn btn-primary" href="{{route('ingresos.edit', $ingreso->id)}}">Editar</a>
-                                </td>
-                                <td width="10px">
-                                    <form action="{{route('ingresos.destroy', $ingreso->id)}}" method="POST">
-                                        @csrf
-                                        @method('delete')
+                                @if ($id == 1)
+                                    <td width="10px">
+                                        <form action="{{route('ingresos.destroy', $ingreso->id, $ingreso->dni, $ingreso->pago)}}" method="POST">
+                                            @csrf
+                                            @method('delete')
 
-                                        <button class="btn btn-danger" type="submit">Eliminar</button>
-                                    </form>
-                                    
-                                </td>
+                                            <button class="btn btn-danger" type="submit">Eliminar</button>
+                                        </form>
+                                    </td>
+                                @endif
+
+                                
                             </tr>
                         @endforeach
                     </tbody>

@@ -1,0 +1,75 @@
+<div>
+    @if (session('info'))
+        <div class="alert alert-success">
+            <strong>{{session('info')}}</strong>
+        </div>
+    @elseif (session('danger'))
+        <div class="alert alert-danger">
+            <strong>{{session('danger')}}</strong>
+        </div>
+    @endif
+
+
+    <div class="card">
+
+        <div class="card-header">
+            <a href="{{route('alumnos.create')}}" class="btn btn-primary">Registrar alumno</a>
+        </div>
+
+        <div class="card-header">
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="basic-addon1"><i class="fas fa-search"></i></span>
+                </div>
+                <input wire:model="search" type="text" class="form-control" placeholder="Ingrese el DNI del alumno">
+            </div>
+        </div>
+
+        @if ($alumnos->count())
+            <div class="card-body">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>DNI</th>
+                            <th>Nombre</th>
+                            <th>Apellido Paterno</th>
+                            <th>Apellido Materno</th>
+                            <th>Género</th>
+                            <th>Nivel</th>
+                            <th>Sección</th>
+                            <th>Monto Pagado</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        @foreach ($alumnos as $alumno)
+                            <tr>
+                                <td>{{$alumno->dni}}</td>
+                                <td>{{$alumno->Nombres}}</td>
+                                <td>{{$alumno->ApellPaterno}}</td>
+                                <td>{{$alumno->ApellMaterno}}</td>
+                                <td>{{$alumno->genero}}</td>
+                                <td>{{$alumno->nivel}}</td>
+                                <td>{{$alumno->seccion}}</td>
+                                <td>{{$alumno->montoPagado}}</td>
+                                <td width="10px">
+                                    <a class="btn btn-primary" href="{{route('alumnos.edit', $alumno->dni)}}">Editar</a>
+                                </td>
+                                
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="card-footer">
+                {{$alumnos->links()}}
+            </div>
+        @else
+            <div class="card-body">
+                <strong>No hay ningún registro con ese número de recibo</strong>    
+            </div>
+        @endif
+            
+    </div>
+</div>

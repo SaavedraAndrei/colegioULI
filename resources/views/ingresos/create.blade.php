@@ -31,10 +31,10 @@
             </div>
 
             <div class="form-group">
-                {!! Form::label('idAlumno', 'Alumno', ['class' => 'nombre_form']) !!}
-                {!! Form::text('idAlumno', null, ['class' => 'form-control', 'placeholder' => 'Ingrese al alumno']) !!}
+                {!! Form::label('dniAlumno', 'DNI del Alumno', ['class' => 'nombre_form']) !!}
+                {!! Form::text('dniAlumno', null, ['class' => 'form-control', 'placeholder' => 'Ingrese el DNI del alumno']) !!}
 
-                @error('idAlumno')
+                @error('dniAlumno')
                     <span class="text-danger">{{$message}}</span>
                 @enderror
             </div>

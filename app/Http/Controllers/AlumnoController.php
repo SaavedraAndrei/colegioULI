@@ -60,7 +60,7 @@ class AlumnoController extends Controller
             'Nombres' =>'required',
             'ApellPaterno' => 'required',
             'ApellMaterno' => 'required',
-            'dni' => 'required',
+            'dni' => 'required|unique:alumnos',
             'genero' => 'required',
             'nivel' => 'required',
             'seccion' => 'required'
@@ -96,9 +96,9 @@ class AlumnoController extends Controller
         ];
 
         $niveles = [
-            'Inicial' => 'Inicial',
-            'Primaria' => 'Primaria',
-            'Secundaria' => 'Secundaria',
+            'inicial' => 'Inicial',
+            'primaria' => 'Primaria',
+            'secundaria' => 'Secundaria',
         ];
 
         $secciones = [
@@ -128,7 +128,8 @@ class AlumnoController extends Controller
             'dni' => 'required',
             'genero' => 'required',
             'nivel' => 'required',
-            'seccion' => 'required'
+            'seccion' => 'required',
+            'montoPagado' => 'required',
         ]);
 
         $alumno->update($request->all());

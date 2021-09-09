@@ -10,6 +10,7 @@ use App\Models\Alumno;
 use Illuminate\Support\Facades\DB;
 use Livewire\WithPagination;
 
+
 class IngresoController extends Controller
 {
     /**
@@ -28,7 +29,7 @@ class IngresoController extends Controller
         $paginationTheme = "bootstrap";
 
         $ingresos = DB::table('Ingresos')
-            ->leftjoin('Alumnos', 'Ingresos.idAlumno', '=', 'Alumnos.id')
+            ->leftjoin('Alumnos', 'Ingresos.dniAlumno', '=', 'Alumnos.dni')
             ->select(
                 'Ingresos.id as id', 
                 'Ingresos.NumRecibo as NumRecibo',
@@ -82,29 +83,29 @@ class IngresoController extends Controller
         $request->validate([
             'NumRecibo' => ['required','unique:ingresos'],
             'Tipo' => 'required',
-            'idAlumno' => 'required',
+            'dniAlumno' => 'required',
             'pago' => 'required',
         ]);
 
         $ingreso = Ingreso::create([
             'NumRecibo' => $request->NumRecibo,
             'Tipo' => $request->Tipo,
-            'idAlumno' => $request->idAlumno,
+            'dniAlumno' => $request->dniAlumno,
             'pago' => $request->pago,
             'idPersonal' => Auth::user()->id,
         ]);
 
         $pago_alumno = $request->pago;
-        $id_alumno = $request->idAlumno;
+        $dni_alumno = $request->dniAlumno;
         
-        $montoActuals = DB::table('Alumnos')->select('montoPagado')->where('id', $id_alumno)->get();
+        $montoActuals = DB::table('Alumnos')->select('montoPagado')->where('dni', $dni_alumno)->get();
         
         foreach ($montoActuals as $montoActual) {
             $monto = $montoActual->montoPagado;
 
             $montoFinal = $monto + $pago_alumno;
 
-            Alumno::where('id', '=', $id_alumno)->update(['montoPagado' => $montoFinal]);
+            Alumno::where('dni', '=', $dni_alumno)->update(['montoPagado' => $montoFinal]);
         }
 
         // 2021-09-08 20:16:57
@@ -165,11 +166,31 @@ class IngresoController extends Controller
         $request->validate([
             'NumRecibo' =>'required',
             'Tipo' => 'required',
-            'idCliente' => 'required',
-            'idPersonal' => 'required',
+            'dniAlumno' => 'required',
+            'pago' => 'required',
         ]);
 
         $ingreso->update($request->all());
+
+        $ingreso = Ingreso::update([
+            'NumRecibo' => $request->NumRecibo,
+            'Tipo' => $request->Tipo,
+            'dniAlumno' => $request->dniAlumno,
+            'pago' => $request->pago,
+        ]);
+
+        $pago_alumno = $request->pago;
+        $dni_alumno = $request->dniAlumno;
+        
+        $montoActuals = DB::table('Alumnos')->select('montoPagado')->where('dni', $dni_alumno)->get();
+        
+        foreach ($montoActuals as $montoActual) {
+            $monto = $montoActual->montoPagado;
+
+            $montoFinal = $monto + $pago_alumno;
+
+            Alumno::where('dni', '=', $dni_alumno)->update(['montoPagado' => $montoFinal]);
+        }
 
         return redirect()->route('ingresos.index', $ingreso)->with('info', 'Se actualizó correctamente');
     }
@@ -183,6 +204,7 @@ class IngresoController extends Controller
     public function destroy(Ingreso $ingreso)
     {
         $ingreso->delete();
+
 
         return redirect()->route('ingresos.index', $ingreso)->with('danger', 'Se eliminó correctamente');
     }

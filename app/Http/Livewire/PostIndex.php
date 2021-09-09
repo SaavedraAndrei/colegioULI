@@ -5,6 +5,8 @@ namespace App\Http\Livewire;
 use Livewire\Component;
 use Illuminate\Support\Facades\DB;
 use Livewire\WithPagination;
+use Illuminate\Support\Facades\Auth;
+
 
 
 class PostIndex extends Component
@@ -24,7 +26,7 @@ class PostIndex extends Component
     public function render()
     {
         $ingresos = DB::table('Ingresos')
-            ->leftjoin('Alumnos', 'Ingresos.idAlumno', '=', 'Alumnos.id')
+            ->leftjoin('Alumnos', 'Ingresos.dniAlumno', '=', 'Alumnos.dni')
             ->select(
                 'Ingresos.id as id', 
                 'Ingresos.NumRecibo as NumRecibo',
@@ -38,6 +40,12 @@ class PostIndex extends Component
             ->orderBy('created_at', 'desc')
             ->paginate();
 
-        return view('livewire.post-index', compact('ingresos'));
+        $pruebas = DB::table('users')->select('rol')->where('id', Auth::user()->id)->get();
+
+        foreach ($pruebas as $prueba) {
+            $id = $prueba->rol;
+        }
+
+        return view('livewire.post-index', compact('ingresos', 'id'));
     }
 }

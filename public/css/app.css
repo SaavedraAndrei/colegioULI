@@ -1888,7 +1888,7 @@ select {
 }
 .boton-cancelado{
     background-color: aqua!important;
-    color: red!important;
+    color: red;
 }
 .hover\:border-gray-300:hover {
 	--tw-border-opacity: 1;

@@ -29,7 +29,6 @@
                     <span class="text-danger">{{$message}}</span>
                 @enderror
             </div>
-                
 
             <div class="form-group">
                 {!! Form::label('idAlumno', 'Alumno', ['class' => 'nombre_form']) !!}

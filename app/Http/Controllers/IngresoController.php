@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use App\Models\Alumno;
 use Illuminate\Support\Facades\DB;
-
+use Livewire\WithPagination;
 
 class IngresoController extends Controller
 {
@@ -17,8 +17,15 @@ class IngresoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    use WithPagination;
+    
+    protected $paginationTheme = "bootstrap";
+
     public function index()
     {
+
+        $paginationTheme = "bootstrap";
 
         $ingresos = DB::table('Ingresos')
             ->leftjoin('Alumnos', 'Ingresos.idAlumno', '=', 'Alumnos.id')
@@ -31,7 +38,8 @@ class IngresoController extends Controller
                 'Ingresos.pago as pago',
                 'Ingresos.idPersonal'
             )
-            ->get();
+            ->orderBy('created_at', 'desc')
+            ->paginate();
 
         return view('ingresos.index', compact('ingresos'));
     }
@@ -58,7 +66,7 @@ class IngresoController extends Controller
             'capacitacion' => 'Capacitación',
             'examen' => 'Examen',
             'otros' => 'Otros',
-        ];
+        ];        
 
         return view('ingresos.create', compact('tipos'));
     }
@@ -86,22 +94,21 @@ class IngresoController extends Controller
             'idPersonal' => Auth::user()->id,
         ]);
 
-        // $pago_alumno = $request->pago;
-        // $id_alumno = $request->idAlumno;
+        $pago_alumno = $request->pago;
+        $id_alumno = $request->idAlumno;
         
-        // $montoActuals = DB::table('ingresos')->select('pago')->where('id', $id_alumno)->get();
+        $montoActuals = DB::table('Alumnos')->select('montoPagado')->where('id', $id_alumno)->get();
         
-        // foreach ($montoActuals as $montoActual) {
-        //     $monto = $montoActual->pago;
+        foreach ($montoActuals as $montoActual) {
+            $monto = $montoActual->montoPagado;
 
-        //     $montoFinal = $monto + $pago_alumno;
+            $montoFinal = $monto + $pago_alumno;
 
-        //     // Alumno::update([
-        //     //     'montoPagado' => $montoFinal
-        //     // ]);
+            Alumno::where('id', '=', $id_alumno)->update(['montoPagado' => $montoFinal]);
+        }
 
-        //     DB::table('Alumnos')->update('montoPagado', $montoFinal)->where('id', $id_alumno);
-        // }
+        // 2021-09-08 20:16:57
+        // 2021-09-08 20:18:41
 
         return redirect()->route('ingresos.index', $ingreso)->with('info', 'Se registró correctamente');
     }

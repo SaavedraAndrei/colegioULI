@@ -80,16 +80,6 @@
 
             <div class="form-group">
                 
-                {!! Form::label('seccion', 'Sección') !!}
-                {!! Form::select('seccion', $secciones, null, ['class' => 'form-control', 'placeholder' => 'Seleccione la sección del alumno']) !!}                
-
-                @error('seccion')
-                    <span class="text-danger">{{$message}}</span>
-                @enderror
-            </div>
-
-            <div class="form-group">
-                
                 {!! Form::label('montoPagado', 'Total Pagado') !!}
                 {!! Form::text('montoPagado', null, ['class' => 'form-control', 'placeholder' => 'Ingrese el monto total pagado por el alumno']) !!}
 

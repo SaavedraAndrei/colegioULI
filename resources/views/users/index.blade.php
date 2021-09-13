@@ -43,6 +43,17 @@
                             <td>{{$user->name}}</td>
                             <td>{{$user->email}}</td>
                             <td>{{$user->rol}}</td>
+
+                            @if ($id == 1)
+                                <td width="10px">
+                                    <form action="{{route('users.destroy', $user->id)}}" method="POST">
+                                        @csrf
+                                        @method('delete')
+        
+                                        <button class="btn btn-danger" type="submit">Eliminar</button>
+                                    </form>
+                                </td>
+                            @endif
                         </tr>
                     @endforeach
                 </tbody>

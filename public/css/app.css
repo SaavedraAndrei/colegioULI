@@ -1212,6 +1212,9 @@ select {
 .mb-4 {
 	margin-bottom: 1rem;
 }
+.mb-3 {
+	margin-bottom: 0.75rem;
+}
 .-mt-px {
 	margin-top: -1px;
 }
@@ -1890,6 +1893,24 @@ select {
     background-color: aqua!important;
     color: red;
 }
+.titulo-dash{
+    color: rgb(21, 60, 101) !important;
+    font-weight: bold;
+    font-size: 18px;
+    margin: 20px auto;
+}
+.titulo-principal{
+    font-size: 52px!important;
+    color: rgb(237, 222, 61)!important;
+    font-weight: bold;
+}
+.contenedor{
+    text-align: center;
+    background-color: rgb(113, 134, 147);
+    display: block;
+    width: 100%!important;
+    height: 100%!important;
+}
 .hover\:border-gray-300:hover {
 	--tw-border-opacity: 1;
 	border-color: rgba(209, 213, 219, var(--tw-border-opacity));
@@ -2298,3 +2319,5 @@ select {
 		padding-right: 2rem;
 	}
 }
+
+

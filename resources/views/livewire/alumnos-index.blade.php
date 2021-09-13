@@ -21,7 +21,7 @@
                 <div class="input-group-prepend">
                   <span class="input-group-text" id="basic-addon1"><i class="fas fa-search"></i></span>
                 </div>
-                <input wire:model="search" type="text" class="form-control" placeholder="Ingrese el DNI del alumno">
+                <input wire:model="search" type="text" class="form-control" placeholder="Ingrese el Apellido Paterno del Alumno">
             </div>
         </div>
 
@@ -31,7 +31,7 @@
                     <thead>
                         <tr>
                             <th>DNI</th>
-                            <th>Nombre</th>
+                            <th>Nombres</th>
                             <th>Apellido Paterno</th>
                             <th>Apellido Materno</th>
                             <th>Género</th>

@@ -85,7 +85,7 @@ class AlumnoController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $aAlumno lumno
+     * @param  string  $dni
      * @return \Illuminate\Http\Response
      */
     public function edit(Alumno $alumno)
@@ -116,7 +116,7 @@ class AlumnoController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $aAlumno lumno
+     * @param  string  $dni
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Alumno $alumno)

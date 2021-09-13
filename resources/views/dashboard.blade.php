@@ -3,7 +3,13 @@
 @section('title', 'ColegioULI')
 
 @section('content_header')
-    <h1>Ingresos</h1>
+
+    <div class="contenedor">
+        <h1 class="titulo-dash titulo-principal">COLEGIO UNIÓN LATINO INNOVA</h1>
+        <h1 class="titulo-dash">PANEL ADMINISTRATIVO</h1>
+        <h2 class="titulo-dash">INGRESOS y EGRESOS</h2>
+    </div>
+    
 @stop
 
 @section('content')
@@ -11,7 +17,7 @@
 @stop
 
 @section('css')
-    <link rel="stylesheet" href="/css/admin_custom.css">
+    <link rel="stylesheet" href="/css/app.css">
 @stop
 
 @section('js')

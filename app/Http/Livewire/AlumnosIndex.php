@@ -34,7 +34,7 @@ class AlumnosIndex extends Component
                 'seccion',
                 'montoPagado'
             )
-            ->where('dni', 'LIKE', '%' . $this->search . '%')
+            ->where('ApellPaterno', 'LIKE', '%' . $this->search . '%')
             ->paginate();
 
         return view('livewire.alumnos-index', compact('alumnos'));

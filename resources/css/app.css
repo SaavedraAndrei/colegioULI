@@ -7,3 +7,25 @@
     background-color: aqua!important;
     color: red;
 }
+
+.titulo-dash{
+    color: rgb(21, 60, 101) !important;
+    font-weight: bold;
+    font-size: 18px;
+    margin: 20px auto;
+}
+
+.titulo-principal{
+    font-size: 52px!important;
+    color: rgb(237, 222, 61)!important;
+    font-weight: bold;
+}
+
+.contenedor{
+    text-align: center;
+    background-color: rgb(113, 134, 147);
+    display: block;
+    width: 100%!important;
+    height: 100%!important;
+}
+

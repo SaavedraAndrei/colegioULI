@@ -3,11 +3,11 @@
 @section('title', 'ColegioULI')
 
 @section('content_header')
-    <h1>Lista de egresos</h1>
+    <h1>Mostrar lista del personal</h1>
 @stop
 
 @section('content')
-    @livewire('egresos-index')
+    <p>Sección del personal.</p>
 @stop
 
 @section('css')

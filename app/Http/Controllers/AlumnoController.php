@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Alumno;
+use Illuminate\Support\Facades\DB;
+
 
 class AlumnoController extends Controller
 {
@@ -66,7 +68,22 @@ class AlumnoController extends Controller
             'seccion' => 'required'
         ]);
 
-        $alumno = Alumno::create($request->all());
+        // $alumno = Alumno::create($request->all());
+        $idNuevo = 0;
+        $idActual = Alumno::max('id');
+        $idNuevo = $idActual + 1;
+        
+        $alumno = Alumno::create([
+            'Nombres' => $request->Nombres,
+            'ApellPaterno' => $request->ApellPaterno,
+            'ApellMaterno' => $request->ApellMaterno,
+            'dni' => $request->dni,
+            'genero' => $request->genero,
+            'nivel' => $request->nivel,
+            'seccion' => $request->seccion,
+            'estado' => 'activo',
+            'id' => $idNuevo,
+        ]);
 
         return redirect()->route('alumnos.index', $alumno)->with('info', 'Se registró correctamente');
     }
@@ -116,7 +133,7 @@ class AlumnoController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  string  $dni
+     * @param  int  $aAlumno lumno
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Alumno $alumno)
@@ -129,6 +146,7 @@ class AlumnoController extends Controller
             'genero' => 'required',
             'nivel' => 'required',
             'seccion' => 'required',
+            'estado' => 'required',
             'montoPagado' => 'required',
         ]);
 
@@ -145,8 +163,5 @@ class AlumnoController extends Controller
      */
     public function destroy(Alumno $alumno)
     {
-        $alumno->delete();
-
-        return redirect()->route('alumnos.index', $alumno)->with('danger', 'Se eliminó correctamente');
     }
 }

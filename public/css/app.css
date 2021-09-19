@@ -1889,27 +1889,39 @@ select {
 .ease-in {
 	transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
 }
-.boton-cancelado{
-    background-color: aqua!important;
-    color: red;
-}
 .titulo-dash{
-    color: rgb(21, 60, 101) !important;
+    color: #fafbfc!important;
     font-weight: bold;
-    font-size: 18px;
-    margin: 20px auto;
+    font-size: 62px;
 }
 .titulo-principal{
-    font-size: 52px!important;
-    color: rgb(237, 222, 61)!important;
+    font-size: 82px!important;
+    margin-bottom: 30px;
+    padding-bottom: 30px;
+    color: #fafbfc!important;
     font-weight: bold;
+}
+.centrar{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 .contenedor{
     text-align: center;
-    background-color: rgb(113, 134, 147);
-    display: block;
+    background-color: #6b7280!important;
     width: 100%!important;
-    height: 100%!important;
+    height: 90vh!important;
+    padding: 40px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+
+    background-color: #666666;
+    background-image: url(/images/black-1072366_1920.jpg?cd853fdadc089249ce936aa52e7c8ddb);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 .hover\:border-gray-300:hover {
 	--tw-border-opacity: 1;

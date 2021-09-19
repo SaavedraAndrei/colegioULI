@@ -7,6 +7,8 @@ use App\Http\Controllers\AlumnoController;
 use App\Http\Controllers\IngresoController;
 use App\Http\Controllers\EgresoController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\PersonalController;
+
 
 
 
@@ -37,6 +39,10 @@ Route::resource('ingresos', IngresoController::class)->names('ingresos');
 
 
 Route::resource('egresos', EgresoController::class)->names('egresos');
+
+
+Route::resource('personals', PersonalController::class)->names('personals');
+
 
 
 

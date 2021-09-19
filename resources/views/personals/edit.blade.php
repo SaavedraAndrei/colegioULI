@@ -9,11 +9,11 @@
 @section('content')
     <div class="card">
         <div class="card-body">
-            {!! Form::model($alumno, ['route' => ['alumnos.update', $alumno], 'method' => 'PUT']) !!}
+            {!! Form::model($personal, ['route' => ['personals.update', $personal], 'method' => 'PUT']) !!}
 
             <div class="form-group">
                 {!! Form::label('Nombres', 'Nombres', ['class' => 'nombre_form']) !!}
-                {!! Form::text('Nombres', null, ['class' => 'form-control', 'placeholder' => 'Ingrese el nombre del alumno']) !!}
+                {!! Form::text('Nombres', null, ['class' => 'form-control', 'placeholder' => 'Ingrese el nombre']) !!}
 
                 @error('Nombres')
                     <span class="text-danger">{{$message}}</span>
@@ -22,7 +22,7 @@
 
             <div class="form-group">
                 {!! Form::label('ApellPaterno', 'Apellido Paterno', ['class' => 'nombre_form']) !!}
-                {!! Form::text('ApellPaterno', null, ['class' => 'form-control', 'placeholder' => 'Ingrese el nombre del alumno']) !!}
+                {!! Form::text('ApellPaterno', null, ['class' => 'form-control', 'placeholder' => 'Ingrese el apellido paterno']) !!}
 
                 @error('ApellPaterno')
                     <span class="text-danger">{{$message}}</span>
@@ -32,7 +32,7 @@
 
             <div class="form-group">
                 {!! Form::label('ApellMaterno', 'Apellido Materno', ['class' => 'nombre_form']) !!}
-                {!! Form::text('ApellMaterno', null, ['class' => 'form-control', 'placeholder' => 'Ingrese el nombre del alumno']) !!}
+                {!! Form::text('ApellMaterno', null, ['class' => 'form-control', 'placeholder' => 'Ingrese el apellido materno']) !!}
 
                 @error('ApellMaterno')
                     <span class="text-danger">{{$message}}</span>
@@ -41,7 +41,7 @@
 
             <div class="form-group">
                 {!! Form::label('dni', 'DNI', ['class' => 'nombre_form']) !!}
-                {!! Form::text('dni', null, ['class' => 'form-control', 'placeholder' => 'Ingrese el DNI del alumno']) !!}
+                {!! Form::text('dni', null, ['class' => 'form-control', 'placeholder' => 'Ingrese el DNI']) !!}
 
                 @error('dni')
                     <span class="text-danger">{{$message}}</span>
@@ -50,33 +50,14 @@
 
             <div class="form-group">
                 
-                {!! Form::label('genero', 'Género') !!}
-                {!! Form::select('genero', $generos, null, ['class' => 'form-control', 'placeholder' => 'Seleccione el género del alumno']) !!}                
+                {!! Form::label('Tipo', 'Área a la que pertenece') !!}
+                {!! Form::select('Tipo', $tipos, null, ['class' => 'form-control', 'placeholder' => 'Seleccione']) !!}                
 
-                @error('genero')
+                @error('Tipo')
                     <span class="text-danger">{{$message}}</span>
                 @enderror
             </div>
 
-            <div class="form-group">
-                
-                {!! Form::label('nivel', 'Nivel') !!}
-                {!! Form::select('nivel', $niveles, null, ['class' => 'form-control', 'placeholder' => 'Seleccione el nivel del alumno']) !!}                
-
-                @error('nivel')
-                    <span class="text-danger">{{$message}}</span>
-                @enderror
-            </div>
-
-            <div class="form-group">
-                
-                {!! Form::label('seccion', 'Sección') !!}
-                {!! Form::select('seccion', $secciones, null, ['class' => 'form-control', 'placeholder' => 'Seleccione la sección del alumno']) !!}                
-
-                @error('seccion')
-                    <span class="text-danger">{{$message}}</span>
-                @enderror
-            </div>
 
             <div class="form-group">
                 {!! Form::label('estado', 'Estado', ['class' => 'nombre_form']) !!}
@@ -90,7 +71,7 @@
             <div class="form-group">
                 
                 {!! Form::label('montoPagado', 'Total Pagado') !!}
-                {!! Form::text('montoPagado', null, ['class' => 'form-control', 'placeholder' => 'Ingrese el monto total pagado por el alumno']) !!}
+                {!! Form::text('montoPagado', null, ['class' => 'form-control', 'placeholder' => 'Ingrese el monto total que se pago al personal']) !!}
 
                 @error('montoPagado')
                     <span class="text-danger">{{$message}}</span>

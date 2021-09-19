@@ -13,7 +13,7 @@
     <div class="card">
 
         <div class="card-header">
-            <a href="{{route('ingresos.create')}}" class="btn btn-primary">Registrar ingreso</a>
+            <a href="{{route('egresos.create')}}" class="btn btn-primary">Registrar Egreso</a>
         </div>
  
         <div class="card-header">
@@ -21,19 +21,18 @@
                 <div class="input-group-prepend">
                   <span class="input-group-text" id="basic-addon1"><i class="fas fa-search"></i></span>
                 </div>
-                <input wire:model="search" type="text" class="form-control" placeholder="Ingrese el número de recibo del ingreso">    
+                <input wire:model="search" type="text" class="form-control" placeholder="Ingrese el número de recibo del egreso">    
             </div>
         </div>
 
-        @if ($ingresos->count())
+        @if ($egresos->count())
             <div class="card-body">
                 <table class="table table-striped">
                     <thead>
                         <tr>
                             <th>ID</th>
                             <th>Número de Recibo</th>
-                            <th>DNI Alumno</th>
-                            <th>Tipo</th>
+                            <th>DNI Personal</th>
                             <th>Fecha</th>
                             <th>Pago</th>
                             <th>ID Usuario</th>
@@ -41,19 +40,17 @@
                     </thead>
 
                     <tbody>
-                        @foreach ($ingresos as $ingreso)
+                        @foreach ($egresos as $egreso)
                             <tr>
-                                <td>{{$ingreso->id}}</td>
-                                <td>{{$ingreso->NumRecibo}}</td>
-                                <td>{{$ingreso->dni}}</td>
-                                <td>{{$ingreso->Tipo}}</td>
-                                <td>{{$ingreso->created_at}}</td>
-                                <td>{{$ingreso->pago}}</td>
-                                <td>{{$ingreso->idPersonal}}</td>
-
+                                <td>{{$egreso->id}}</td>
+                                <td>{{$egreso->NumRecibo}}</td>
+                                <td>{{$egreso->dniPersonal}}</td>
+                                <td>{{$egreso->created_at}}</td>
+                                <td>{{$egreso->pago}}</td>
+                                <td>{{$egreso->idPersonal}}</td>
                                 @if ($id == 1)
                                     <td width="10px">
-                                        <form action="{{route('ingresos.destroy', $ingreso->id, $ingreso->dni, $ingreso->pago)}}" method="POST">
+                                        <form action="{{route('egresos.destroy', $egreso->id, $egreso->dniPersonal, $egreso->pago)}}" method="POST">
                                             @csrf
                                             @method('delete')
 
@@ -70,7 +67,7 @@
             </div>
 
             <div class="card-footer">
-                {{$ingresos->links()}}
+                {{$egresos->links()}}
             </div>
         @else
             <div class="card-body">

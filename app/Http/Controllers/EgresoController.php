@@ -4,6 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Egreso;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
+use App\Models\Personal;
+use Illuminate\Support\Facades\DB;
+use Livewire\WithPagination;
+
 
 
 class EgresoController extends Controller
@@ -13,6 +19,7 @@ class EgresoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
     public function index()
     {
         $egresos = Egreso::all();
@@ -36,16 +43,36 @@ class EgresoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Egreso $egreso)
     {
         $request->validate([
-            'NumRecibo' =>'required',
-            'Tipo' => 'required',
-            'idTrabajador' => 'required',
-            'idPersonal' => 'required',
+            'NumRecibo' => ['required','unique:egresos'],
+            'dniPersonal' => 'required',
+            'pago' => 'required',
         ]);
 
-        $egreso = Egreso::create($request->all());
+        $egreso = Egreso::create([
+            'NumRecibo' => $request->NumRecibo,
+            'dniPersonal' => $request->dniPersonal,
+            'pago' => $request->pago,
+            'idPersonal' => Auth::user()->id,
+        ]);
+
+        $pago_alumno = $request->pago;
+        $dni_alumno = $request->dniPersonal;
+        
+        $montoActuals = DB::table('Personals')->select('montoPagado')->where('dni', $dni_alumno)->get();
+        
+        foreach ($montoActuals as $montoActual) {
+            $monto = $montoActual->montoPagado;
+
+            $montoFinal = $monto + $pago_alumno;
+
+            Personal::where('dni', '=', $dni_alumno)->update(['montoPagado' => $montoFinal]);
+        }
+
+        // 2021-09-08 20:16:57
+        // 2021-09-08 20:18:41
 
         return redirect()->route('egresos.index', $egreso)->with('info', 'Se registró correctamente');
     }

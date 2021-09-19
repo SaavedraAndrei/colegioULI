@@ -21,33 +21,23 @@
             </div>
 
             <div class="form-group">
-                {!! Form::label('Tipo', 'Tipo', ['class' => 'nombre_form']) !!}
-                {!! Form::text('Tipo', null, ['class' => 'form-control', 'placeholder' => 'Ingrese el nombre del alumno']) !!}
+                {!! Form::label('dniPersonal', 'DNI del Personal', ['class' => 'nombre_form']) !!}
+                {!! Form::text('dniPersonal', null, ['class' => 'form-control', 'placeholder' => 'Ingrese el DNI del personal']) !!}
 
-                @error('Tipo')
+                @error('dniPersonal')
                     <span class="text-danger">{{$message}}</span>
                 @enderror
             </div>
                 
 
             <div class="form-group">
-                {!! Form::label('idTrabajador', 'Trabajador', ['class' => 'nombre_form']) !!}
-                {!! Form::text('idTrabajador', null, ['class' => 'form-control', 'placeholder' => 'Ingrese el nombre del alumno']) !!}
+                {!! Form::label('pago', 'Monto Pago', ['class' => 'nombre_form']) !!}
+                {!! Form::text('pago', null, ['class' => 'form-control', 'placeholder' => 'Ingrese el monto de pago al personal']) !!}
 
-                @error('idTrabajador')
+                @error('pago')
                     <span class="text-danger">{{$message}}</span>
                 @enderror
             </div>
-
-            <div class="form-group">
-                {!! Form::label('idPersonal', 'Personal', ['class' => 'nombre_form']) !!}
-                {!! Form::text('idPersonal', null, ['class' => 'form-control', 'placeholder' => 'Ingrese el nombre del alumno']) !!}
-
-                @error('idPersonal')
-                    <span class="text-danger">{{$message}}</span>
-                @enderror
-            </div>
-               
 
             <div class="form-group">
                 {!! Form::submit('Registrar egreso', ['class' => 'btn btn-primary']) !!}

@@ -3,17 +3,15 @@
 @section('title', 'ColegioULI')
 
 @section('content_header')
-
     <div class="contenedor">
-        <h1 class="titulo-dash titulo-principal">COLEGIO UNIÓN LATINO INNOVA</h1>
-        <h1 class="titulo-dash">PANEL ADMINISTRATIVO</h1>
-        <h2 class="titulo-dash">INGRESOS y EGRESOS</h2>
+        <div class="centrar">
+            <h1 class="titulo-dash titulo-principal">COLEGIO UNIÓN LATINO INNOVA</h1>
+            <h3 class="titulo-dash">INGRESOS Y EGRESOS</h3>
+        </div>    
     </div>
-    
 @stop
 
 @section('content')
-    <p>Sección de registros.</p>
 @stop
 
 @section('css')

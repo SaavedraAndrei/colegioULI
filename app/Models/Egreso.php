@@ -10,6 +10,6 @@ class Egreso extends Model
     use HasFactory;
 
     protected $fillable = [
-        'NumRecibo', 'Tipo', 'idTrabajador', 'idPersonal',
+        'NumRecibo', 'dniPersonal', 'pago','idPersonal',
     ];
 }

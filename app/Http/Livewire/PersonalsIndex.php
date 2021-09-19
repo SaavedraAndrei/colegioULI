@@ -5,13 +5,10 @@ namespace App\Http\Livewire;
 use Livewire\Component;
 use Illuminate\Support\Facades\DB;
 use Livewire\WithPagination;
-use App\Models\Alumno;
+use App\Models\Personal;
 
-
-
-class AlumnosIndex extends Component
+class PersonalsIndex extends Component
 {
-
     use WithPagination;
     
     protected $paginationTheme = "bootstrap";
@@ -24,24 +21,21 @@ class AlumnosIndex extends Component
 
     public function render()
     {
-        $alumnos = DB::table('Alumnos')
+        $personals = DB::table('Personals')
             ->select(
                 'id', 
                 'Nombres',
                 'ApellPaterno',
                 'ApellMaterno',
                 'dni',
-                'genero',
-                'nivel',
-                'seccion',
+                'Tipo',
                 'estado',
-                'montoPagado',
+                'montoPagado'
             )
             ->where('ApellPaterno', 'LIKE', '%' . $this->search . '%')
             ->orderBy('id', 'desc')
             ->paginate();
 
-
-        return view('livewire.alumnos-index', compact('alumnos'));
+        return view('livewire.personals-index', compact('personals'));
     }
 }

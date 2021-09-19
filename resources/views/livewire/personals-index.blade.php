@@ -13,7 +13,7 @@
     <div class="card">
 
         <div class="card-header">
-            <a href="{{route('alumnos.create')}}" class="btn btn-primary">Registrar alumno</a>
+            <a href="{{route('personals.create')}}" class="btn btn-primary">Registrar nuevo personal</a>
         </div>
 
         <div class="card-header">
@@ -21,11 +21,11 @@
                 <div class="input-group-prepend">
                   <span class="input-group-text" id="basic-addon1"><i class="fas fa-search"></i></span>
                 </div>
-                <input wire:model="search" type="text" class="form-control" placeholder="Ingrese el Apellido Paterno del Alumno">
+                <input wire:model="search" type="text" class="form-control" placeholder="Ingrese el Apellido Paterno del Personal">
             </div>
         </div>
 
-        @if ($alumnos->count())
+        @if ($personals->count())
             <div class="card-body">
                 <table class="table table-striped">
                     <thead>
@@ -34,28 +34,24 @@
                             <th>Nombres</th>
                             <th>Apellido Paterno</th>
                             <th>Apellido Materno</th>
-                            <th>Género</th>
-                            <th>Nivel</th>
-                            <th>Sección</th>
+                            <th>Tipo</th>
                             <th>Estado</th>
                             <th>Monto Pagado</th>
                         </tr>
                     </thead>
 
                     <tbody>
-                        @foreach ($alumnos as $alumno)
+                        @foreach ($personals as $personal)
                             <tr>
-                                <td>{{$alumno->dni}}</td>
-                                <td>{{$alumno->Nombres}}</td>
-                                <td>{{$alumno->ApellPaterno}}</td>
-                                <td>{{$alumno->ApellMaterno}}</td>
-                                <td>{{$alumno->genero}}</td>
-                                <td>{{$alumno->nivel}}</td>
-                                <td>{{$alumno->seccion}}</td>
-                                <td>{{$alumno->estado}}</td>
-                                <td>{{$alumno->montoPagado}}</td>
+                                <td>{{$personal->dni}}</td>
+                                <td>{{$personal->Nombres}}</td>
+                                <td>{{$personal->ApellPaterno}}</td>
+                                <td>{{$personal->ApellMaterno}}</td>
+                                <td>{{$personal->Tipo}}</td>
+                                <td>{{$personal->estado}}</td>
+                                <td>{{$personal->montoPagado}}</td>
                                 <td width="10px">
-                                    <a class="btn btn-primary" href="{{route('alumnos.edit', $alumno->id)}}">Editar</a>
+                                    <a class="btn btn-primary" href="{{route('personals.edit', $personal->id)}}">Editar</a>
                                 </td>
                             </tr>
                         @endforeach
@@ -64,11 +60,11 @@
             </div>
 
             <div class="card-footer">
-                {{$alumnos->links()}}
+                {{$personals->links()}}
             </div>
         @else
             <div class="card-body">
-                <strong>No hay ningún registro con ese número de recibo</strong>    
+                <strong>No hay ningún registro con ese apellido</strong>    
             </div>
         @endif
             

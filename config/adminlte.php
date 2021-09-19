@@ -263,6 +263,12 @@ return [
             'route'  => 'alumnos.index',
             'icon' => 'fas fa-fw fa-user-graduate',
         ],
+        ['header' => 'Administrar personal'],
+        [
+            'text' => 'Personal',
+            'route' => 'personals.index',
+            'icon' => 'fas fa-fw fa-briefcase',
+        ],
     ],
 
     /*

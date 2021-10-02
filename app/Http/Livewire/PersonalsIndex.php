@@ -9,6 +9,9 @@ use App\Models\Personal;
 
 class PersonalsIndex extends Component
 {
+
+    
+
     use WithPagination;
     
     protected $paginationTheme = "bootstrap";

@@ -58,7 +58,6 @@
                                         </form>
                                     </td>
                                 @endif
-
                                 
                             </tr>
                         @endforeach
@@ -74,6 +73,5 @@
                 <strong>No hay ningún registro con ese número de recibo</strong>    
             </div>
         @endif
-            
     </div>
 </div>

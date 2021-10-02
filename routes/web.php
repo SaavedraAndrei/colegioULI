@@ -16,6 +16,7 @@ use App\Http\Controllers\PersonalController;
 
 
 
+
 Route::get('/', function () {
     return view('auth.login');
 });
@@ -25,6 +26,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/users', [UserController::
 Route::middleware(['auth:sanctum', 'verified'])->get('/ingresos', [IngresoController::class, 'index' ])->name('ingresos');
 Route::middleware(['auth:sanctum', 'verified'])->get('/egresos', [EgresoController::class, 'index' ])->name('egresos');
 // Route::middleware(['auth:sanctum', 'verified'])->get('/reportes', [AdminController::class, 'index' ])->name('dashboard');
+
 
 
 

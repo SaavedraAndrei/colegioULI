@@ -12,6 +12,8 @@ use App\Models\Alumno;
 class AlumnosIndex extends Component
 {
 
+    
+
     use WithPagination;
     
     protected $paginationTheme = "bootstrap";

@@ -24,6 +24,7 @@ class IngresoController extends Controller
     }
     
 
+
     use WithPagination;
     
     protected $paginationTheme = "bootstrap";
@@ -49,6 +50,7 @@ class IngresoController extends Controller
 
         return view('ingresos.index', compact('ingresos'));
     }
+
 
     /**
      * Show the form for creating a new resource.

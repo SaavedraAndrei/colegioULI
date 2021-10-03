@@ -8,6 +8,9 @@ use App\Http\Controllers\IngresoController;
 use App\Http\Controllers\EgresoController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PersonalController;
+use App\Http\Controllers\ConsultaController;
+
+
 
 
 
@@ -44,6 +47,12 @@ Route::resource('egresos', EgresoController::class)->names('egresos');
 
 
 Route::resource('personals', PersonalController::class)->names('personals');
+
+// Reportes
+Route::GET('/consulta', [ConsultaController::class, 'index'])->name('consulta');
+Route::POST('/consulta/all', [ConsultaController::class, 'all'])->name('all');
+
+
 
 
 

@@ -11,9 +11,6 @@ use Illuminate\Support\Facades\Auth;
 
 class PostIndex extends Component
 {
-
-    
-
     use WithPagination;
     
     protected $paginationTheme = "bootstrap";

@@ -1923,6 +1923,28 @@ select {
     background-size: cover;
     background-repeat: no-repeat;
 }
+.tablas{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px;
+    margin-top: 40px;
+}
+.titulo-tabla{
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 35px;
+    margin-bottom: 10px;
+}
+.tabla-grafica{
+    margin: 0 auto;
+}
+thead{
+    text-align: center;
+}
+tr{
+    text-align: center;
+}
 .hover\:border-gray-300:hover {
 	--tw-border-opacity: 1;
 	border-color: rgba(209, 213, 219, var(--tw-border-opacity));
@@ -2331,5 +2353,3 @@ select {
 		padding-right: 2rem;
 	}
 }
-
-

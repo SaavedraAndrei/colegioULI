@@ -51,6 +51,8 @@ Route::resource('personals', PersonalController::class)->names('personals');
 // Reportes
 Route::GET('/consulta', [ConsultaController::class, 'index'])->name('consulta');
 Route::POST('/consulta/all', [ConsultaController::class, 'all'])->name('all');
+Route::POST('/consulta/all1', [ConsultaController::class, 'all1'])->name('all1');
+
 
 
 

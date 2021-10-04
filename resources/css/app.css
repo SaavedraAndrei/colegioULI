@@ -40,3 +40,29 @@
     background-repeat: no-repeat;
 }
 
+.tablas{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px;
+    margin-top: 40px;
+}
+
+.titulo-tabla{
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 35px;
+    margin-bottom: 10px;
+}
+
+.tabla-grafica{
+    margin: 0 auto;
+}
+
+thead{
+    text-align: center;
+}
+
+tr{
+    text-align: center;
+}

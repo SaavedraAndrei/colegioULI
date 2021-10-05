@@ -27,6 +27,8 @@
 
         @if ($alumnos->count())
             <div class="card-body">
+
+
                 <table class="table table-striped">
                     <thead>
                         <tr>
@@ -39,6 +41,10 @@
                             <th>Sección</th>
                             <th>Estado</th>
                             <th>Monto Pagado</th>
+                            <th>B1</th>
+                            <th>B2</th>
+                            <th>B3</th>
+                            <th>B4</th>
                         </tr>
                     </thead>
 
@@ -54,11 +60,24 @@
                                 <td>{{$alumno->seccion}}</td>
                                 <td>{{$alumno->estado}}</td>
                                 <td>{{$alumno->montoPagado}}</td>
+                                <td>
+                                    <input type="checkbox" name="pension[]" value="b1" id="test1">
+                                </td>
+                                <td>
+                                    <input type="checkbox" name="pension[]" value="b2">
+                                </td>
+                                <td>
+                                    <input type="checkbox" name="pension[]" value="b3">
+                                </td>
+                                <td>
+                                    <input type="checkbox" name="pension[]" value="b4">
+                                </td>
                                 <td width="10px">
                                     <a class="btn btn-primary" href="{{route('alumnos.edit', $alumno->id)}}">Editar</a>
                                 </td>
                             </tr>
                         @endforeach
+                        
                     </tbody>
                 </table>
             </div>

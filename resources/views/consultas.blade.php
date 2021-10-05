@@ -3,80 +3,102 @@
 @section('title', 'ColegioULI')
 
 @section('content_header')
-    <h1>Reportes de Contabilidad</h1>
+    <h1 class="titulo-consultas">Reportes de Contabilidad</h1>
 @stop
 
 @section('content')
-    <h1>Gráficas de ingresos</h1>
  
     <div class="tablas">
         <div class="tabla1">
-
             <h1 class="titulo-tabla">Ingresos y Egresos</h1>
-            
 
-
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th>Tipo Contable</th>
-                        <th>Monto Total</th>
-                        {{-- <th>Número de Recibo</th>
-                        <th>DNI Alumno</th>
-                        <th>Tipo</th>
-                        <th>Fecha</th>
-                        <th>Pago</th>
-                        <th>ID Usuario</th> --}}
-                    </tr>
-                </thead>
-        
-                <tbody>
-                    <tr>
-                        <td>Ingresos</td>
-                        <td>{{$ingresos}}</td>
-                    </tr>
-                    <tr>
-                        <td>Egresos</td>
-                        <td>{{$egresos}}</td>
-                    </tr>
-                </tbody>
-        
-                <tbody id="tbody">
-                    
-                </tbody>
-            </table>
+            <div class="prueba-grid">
+                <div class="text-grid">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Tipo Contable</th>
+                                <th>Monto Total</th>
+                            </tr>
+                        </thead>
+                
+                        <tbody>
+                            <tr>
+                                <td>Ingresos</td>
+                                <td>{{$ingresos}}</td>
+                            </tr>
+                            <tr>
+                                <td>Egresos</td>
+                                <td>{{$egresos}}</td>
+                            </tr>
+                        </tbody>
+                
+                        <tbody id="tbody">
+                            
+                        </tbody>
+                    </table>
+                </div>
     
-            <div class="row col-8 tabla-grafica">
-                <canvas id="myChart" width="100" height="100"></canvas>
+                <div class="grafica-grid">
+                    <div class="row col-8 tabla-grafica">
+                        <canvas id="myChart" width="100" height="100"></canvas>
+                    </div>
+                </div>
+            </div> 
+        </div>
+
+        <div class="tabla1">
+            <h1 class="titulo-tabla">Ingresos Sección - Secundaria</h1>
+            
+            <div class="prueba-grid">
+                <div class="text-grid">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Sección</th>
+                                <th>Monto Total</th>
+                            </tr>
+                        </thead>
+                
+                        <tbody id="tbody1">
+                            
+                        </tbody>
+                    </table>
+                </div>
+    
+                <div class="grafica-grid">
+                    <div class="row col-8 tabla-grafica">
+                        <canvas id="myChart2" width="100" height="100"></canvas>
+                    </div>
+                </div>
             </div>
         </div>
 
+        <div class="tabla1">
 
-        <div class="tabla2">
-
-            <h1 class="titulo-tabla">Ingresos Sección</h1>
+            <h1 class="titulo-tabla">Egresos por Tipo Personal</h1>
+            
+            <div class="prueba-grid">
+                <div class="text-grid">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Tipo</th>
+                                <th>Monto Total</th>
+                            </tr>
+                        </thead>
+                
+                        <tbody id="tbody3">
+                            
+                        </tbody>
+                    </table>
+                </div>
     
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th>Sección</th>
-                        <th>Monto Total</th>
-                        {{-- <th>Número de Recibo</th>
-                        <th>DNI Alumno</th>
-                        <th>Tipo</th>
-                        <th>Fecha</th>
-                        <th>Pago</th>
-                        <th>ID Usuario</th> --}}
-                    </tr>
-                </thead>
-        
-                <tbody id="tbody1">
-                    
-                </tbody>
-            </table>
-    
-            <div class="row col-8 tabla-grafica">
-                <canvas id="myChart2" width="100" height="100"></canvas>
+                <div class="grafica-grid">
+                    <div class="row col-8 tabla-grafica">
+                        <canvas id="myChart3" width="100" height="100"></canvas>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -115,23 +137,8 @@
             }).done(function(res){
                 var arreglo = JSON.parse(res);
                 console.log(arreglo);
-
-                // for(var x=0;x<arreglo.length;x++){
-
-                // var todo = '<tr><td>'+arreglo[0] + '</td>';
-                // todo += '<td>' +arreglo[0][1]+ '</td>';
-                // todo += '<td>' +arreglo[x].dni+ '</td>';
-                // todo += '<td>' +arreglo[x].Tipo+ '</td>';
-                // todo += '<td>' +arreglo[x].created_at+ '</td>';
-                // todo += '<td>' +arreglo[x].pago+ '</td>';
-                // todo += '<td>' +arreglo[x].idPersonal+ '</td>';
-                // todo += '<td></td></tr>';
-
-                // $('#tbody').append(todo);
                 valores.push([arreglo[0]])
-
                 valores1.push([arreglo[1]])
-                // }
                 generarGrafica();
             })
         })
@@ -147,19 +154,9 @@
                         data: valores,
                         backgroundColor: [
                             'rgba(255, 99, 132, 0.2)',
-                            'rgba(54, 162, 235, 0.2)',
-                            'rgba(255, 206, 86, 0.2)',
-                            'rgba(75, 192, 192, 0.2)',
-                            'rgba(153, 102, 255, 0.2)',
-                            'rgba(255, 159, 64, 0.2)'
                         ],
                         borderColor: [
                             'rgba(255, 99, 132, 1)',
-                            'rgba(54, 162, 235, 1)',
-                            'rgba(255, 206, 86, 1)',
-                            'rgba(75, 192, 192, 1)',
-                            'rgba(153, 102, 255, 1)',
-                            'rgba(255, 159, 64, 1)'
                         ],
                         borderWidth: 1
                     }, {
@@ -167,17 +164,9 @@
                         data: valores1,
                         backgroundColor: [
                             'rgba(54, 162, 235, 0.2)',
-                            'rgba(255, 206, 86, 0.2)',
-                            'rgba(75, 192, 192, 0.2)',
-                            'rgba(153, 102, 255, 0.2)',
-                            'rgba(255, 159, 64, 0.2)'
                         ],
                         borderColor: [
                             'rgba(54, 162, 235, 1)',
-                            'rgba(255, 206, 86, 1)',
-                            'rgba(75, 192, 192, 1)',
-                            'rgba(153, 102, 255, 1)',
-                            'rgba(255, 159, 64, 1)'
                         ],
                         borderWidth: 1
                     }]
@@ -219,10 +208,6 @@
 
                     var todo = '<tr><td>'+arreglo1[x].seccion + '</td>';
                     todo += '<td>' +arreglo1[x].MontoTotal+ '</td>';
-                    // todo += '<td>' +arreglo[x].Tipo+ '</td>';
-                    // todo += '<td>' +arreglo[x].created_at+ '</td>';
-                    // todo += '<td>' +arreglo[x].pago+ '</td>';
-                    // todo += '<td>' +arreglo[x].idPersonal+ '</td>';
                     todo += '<td></td></tr>';
 
                     $('#tbody1').append(todo);
@@ -291,6 +276,92 @@
                         ],
                         borderColor: [
                             'rgba(153, 102, 255, 1)',
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        }
+
+
+    </script>
+
+
+    <script>
+
+        var valoresx = [];
+        var valoresz = [];
+        var valoresy = [];
+        $(document).ready(function(){
+
+            $.ajax({
+                url: '/consulta/all3',
+                method: 'POST',
+                data:{
+                    id: 1,
+                    _token: $('input[name="_token"]').val()
+                } 
+            }).done(function(res){
+                var arreglo3 = JSON.parse(res);
+                console.log(arreglo3);
+
+                for(var x=0;x<arreglo3.length;x++){
+
+                    var todo = '<tr><td>'+arreglo3[x].Tipo + '</td>';
+                    todo += '<td>' +arreglo3[x].MontoTotal+ '</td>';
+                    todo += '<td></td></tr>';
+
+                    $('#tbody3').append(todo);
+                
+                }
+                valoresx.push(arreglo3[0].MontoTotal)
+                valoresz.push(arreglo3[1].MontoTotal)
+                valoresy.push(arreglo3[2].MontoTotal)
+                generarGrafica3();
+            })
+        })
+
+        function generarGrafica3(){
+            var ctx = document.getElementById('myChart3').getContext('2d');
+            var myChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['EGRESOS POR TIPO DE PERSONAL'],
+                    datasets: [{
+                        label: 'Administrativo',
+                        data: valoresx,
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 0.2)',
+                        ],
+                        borderColor: [
+                            'rgba(255, 99, 132, 1)',
+                        ],
+                        borderWidth: 1
+                    }, {
+                        label: 'Docente',
+                        data: valoresz,
+                        backgroundColor: [
+                            'rgba(54, 162, 235, 0.2)',
+                        ],
+                        borderColor: [
+                            'rgba(54, 162, 235, 1)',
+                        ],
+                        borderWidth: 1
+                    }, {
+                        label: 'Limpieza',
+                        data: valoresy,
+                        backgroundColor: [
+                            'rgba(255, 206, 86, 0.2)',
+                        ],
+                        borderColor: [
+                            'rgba(255, 206, 86, 1)',
                         ],
                         borderWidth: 1
                     }]

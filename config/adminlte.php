@@ -254,7 +254,7 @@ return [
         ],
         [
             'text' => 'Reportes',
-            'url'  => 'admin/settings',
+            'route'  => 'consulta',
             'icon' => 'fas fa-fw fa-chart-line',
         ],
         ['header' => 'Administrar alumnos'],

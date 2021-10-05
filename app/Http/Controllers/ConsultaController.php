@@ -73,4 +73,18 @@ class ConsultaController extends Controller
         return response(json_encode($resultados1), 200)->header('Content-type', 'text/plain');
         
     }
+
+    public function all3()
+    {
+        // GRAFICA DE EGRESOS POR TIPO DE PERSONAL
+
+        $resultados3 = DB::table('Egresos')
+        ->leftJoin('Personals','Personals.dni','=','Egresos.dniPersonal')
+        ->select('Personals.Tipo',DB::raw('SUM(Egresos.pago) AS MontoTotal'))
+        ->groupBy('Personals.Tipo')
+        ->get();
+
+        
+        return response(json_encode($resultados3), 200)->header('Content-type', 'text/plain');
+    }
 }

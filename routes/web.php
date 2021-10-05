@@ -12,14 +12,6 @@ use App\Http\Controllers\ConsultaController;
 
 
 
-
-
-
-// Soy el mejor ctm
-
-
-
-
 Route::get('/', function () {
     return view('auth.login');
 });
@@ -52,6 +44,7 @@ Route::resource('personals', PersonalController::class)->names('personals');
 Route::GET('/consulta', [ConsultaController::class, 'index'])->name('consulta');
 Route::POST('/consulta/all', [ConsultaController::class, 'all'])->name('all');
 Route::POST('/consulta/all1', [ConsultaController::class, 'all1'])->name('all1');
+Route::POST('/consulta/all3', [ConsultaController::class, 'all3'])->name('all3');
 
 
 

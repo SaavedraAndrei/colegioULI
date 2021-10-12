@@ -60,18 +60,10 @@
                                 <td>{{$alumno->seccion}}</td>
                                 <td>{{$alumno->estado}}</td>
                                 <td>{{$alumno->montoPagado}}</td>
-                                <td>
-                                    <input type="checkbox" name="pension[]" value="b1" id="test1">
-                                </td>
-                                <td>
-                                    <input type="checkbox" name="pension[]" value="b2">
-                                </td>
-                                <td>
-                                    <input type="checkbox" name="pension[]" value="b3">
-                                </td>
-                                <td>
-                                    <input type="checkbox" name="pension[]" value="b4">
-                                </td>
+                                <td>{{$alumno->b1}}</td>
+                                <td>{{$alumno->b2}}</td>
+                                <td>{{$alumno->b3}}</td>
+                                <td>{{$alumno->b4}}</td>
                                 <td width="10px">
                                     <a class="btn btn-primary" href="{{route('alumnos.edit', $alumno->id)}}">Editar</a>
                                 </td>

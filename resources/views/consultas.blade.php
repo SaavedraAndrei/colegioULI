@@ -101,13 +101,65 @@
                 </div>
             </div>
         </div>
+
+
+        <div class="tabla1">
+            <h1 class="titulo-tabla">Ingresos Sección - Primaria</h1>
+            
+            <div class="prueba-grid">
+                <div class="text-grid">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Sección</th>
+                                <th>Monto Total</th>
+                            </tr>
+                        </thead>
+                
+                        <tbody id="tbody4">
+                            
+                        </tbody>
+                    </table>
+                </div>
+    
+                <div class="grafica-grid">
+                    <div class="row col-8 tabla-grafica">
+                        <canvas id="myChart4" width="100" height="100"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tabla1">
+            <h1 class="titulo-tabla">Ingresos Sección - Inicial</h1>
+            
+            <div class="prueba-grid">
+                <div class="text-grid">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Sección</th>
+                                <th>Monto Total</th>
+                            </tr>
+                        </thead>
+                
+                        <tbody id="tbody5">
+                            
+                        </tbody>
+                    </table>
+                </div>
+    
+                <div class="grafica-grid">
+                    <div class="row col-8 tabla-grafica">
+                        <canvas id="myChart5" width="100" height="100"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
     </div>
     
-    
-
-    
-
-
     <form action="{{route('all')}}" action="POST" id="form1"> 
         @csrf
         <input type="hidden" name="id" value="1">
@@ -378,6 +430,203 @@
 
 
     </script>
+
+
+    <script>
+
+        var productos4=[];
+        var valores7 = [];
+        var valores8 = [];
+        var valores9 = [];
+        var valores10 = [];
+        var valores11 = [];
+        var valores12 = [];
+        $(document).ready(function(){
+
+            $.ajax({
+                url: '/consulta/all4',
+                method: 'POST',
+                data:{
+                    id: 1,
+                    _token: $('input[name="_token"]').val()
+                } 
+            }).done(function(res){
+                var arreglo4 = JSON.parse(res);
+                console.log(arreglo4);
+
+                for(var x=0;x<arreglo4.length;x++){
+
+                    var todo = '<tr><td>'+arreglo4[x].seccion + '</td>';
+                    todo += '<td>' +arreglo4[x].MontoTotal+ '</td>';
+                    todo += '<td></td></tr>';
+
+                    $('#tbody4').append(todo);
+                
+                }
+                valores7.push(arreglo4[0].MontoTotal)
+                valores8.push(arreglo4[1].MontoTotal)
+                valores9.push(arreglo4[2].MontoTotal)
+                valores10.push(arreglo4[3].MontoTotal)
+                valores11.push(arreglo4[4].MontoTotal)
+                valores12.push(arreglo4[5].MontoTotal)
+                generarGrafica4();
+            })
+        })
+
+        function generarGrafica4(){
+            var ctx = document.getElementById('myChart4').getContext('2d');
+            var myChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['INGRESOS POR SECCION - PRIMARIA'],
+                    datasets: [{
+                        label: 'Primero',
+                        data: valores8,
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 0.2)',
+                        ],
+                        borderColor: [
+                            'rgba(255, 99, 132, 1)',
+                        ],
+                        borderWidth: 1
+                    }, {
+                        label: 'Segundo',
+                        data: valores10,
+                        backgroundColor: [
+                            'rgba(54, 162, 235, 0.2)',
+                        ],
+                        borderColor: [
+                            'rgba(54, 162, 235, 1)',
+                        ],
+                        borderWidth: 1
+                    }, {
+                        label: 'Tercero',
+                        data: valores12,
+                        backgroundColor: [
+                            'rgba(255, 206, 86, 0.2)',
+                        ],
+                        borderColor: [
+                            'rgba(255, 206, 86, 1)',
+                        ],
+                        borderWidth: 1
+                    }, {
+                        label: 'Cuarto',
+                        data: valores7,
+                        backgroundColor: [
+                            'rgba(75, 192, 192, 0.2)',
+                        ],
+                        borderColor: [
+                            'rgba(75, 192, 192, 1)',
+                        ],
+                        borderWidth: 1
+                    }, {
+                        label: 'Quinto',
+                        data: valores9,
+                        backgroundColor: [
+                            'rgba(153, 102, 255, 0.2)',
+                        ],
+                        borderColor: [
+                            'rgba(153, 102, 255, 1)',
+                        ],
+                        borderWidth: 1
+                    }, {
+                        label: 'Sexto',
+                        data: valores11,
+                        backgroundColor: [
+                            'rgba(87, 87, 87, 0.2)',
+                        ],
+                        borderColor: [
+                            'rgba(87, 87, 87, 1)',
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        }
+
+
+    </script>   
+
+    <script>
+
+        var productos5=[];
+        var valores13 = [];
+        var valores14= [];
+        $(document).ready(function(){
+
+            $.ajax({
+                url: '/consulta/all5',
+                method: 'POST',
+                data:{
+                    id: 1,
+                    _token: $('input[name="_token"]').val()
+                } 
+            }).done(function(res){
+                var arreglo5 = JSON.parse(res);
+                console.log(arreglo5);
+
+                for(var x=0;x<arreglo5.length;x++){
+
+                    var todo = '<tr><td>'+arreglo5[x].seccion + '</td>';
+                    todo += '<td>' +arreglo5[x].MontoTotal+ '</td>';
+                    todo += '<td></td></tr>';
+
+                    $('#tbody5').append(todo);
+                
+                }
+                valores13.push(arreglo5[0].MontoTotal)
+                valores14.push(arreglo5[1].MontoTotal)
+                generarGrafica5();
+            })
+        })
+
+        function generarGrafica5(){
+            var ctx = document.getElementById('myChart5').getContext('2d');
+            var myChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['INGRESOS POR SECCION - INICIAL'],
+                    datasets: [{
+                        label: 'Cuatro',
+                        data: valores14,
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 0.2)',
+                        ],
+                        borderColor: [
+                            'rgba(255, 99, 132, 1)',
+                        ],
+                        borderWidth: 1
+                    },  {
+                        label: 'Cinco',
+                        data: valores13,
+                        backgroundColor: [
+                            'rgba(87, 87, 87, 0.2)',
+                        ],
+                        borderColor: [
+                            'rgba(87, 87, 87, 1)',
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        }
+
+
+    </script>   
 
 
 @stop

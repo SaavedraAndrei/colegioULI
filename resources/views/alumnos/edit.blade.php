@@ -96,7 +96,43 @@
                     <span class="text-danger">{{$message}}</span>
                 @enderror
             </div>
-               
+
+            <div class="form-group">
+                {!! Form::label('b1', 'Bimestre 1', ['class' => 'nombre_form']) !!}
+                {!! Form::text('b1', null, ['class' => 'form-control', 'placeholder' => 'Ingrese si pagó el primer bimestre']) !!}
+
+                @error('b1')
+                    <span class="text-danger">{{$message}}</span>
+                @enderror
+            </div>
+
+            <div class="form-group">
+                {!! Form::label('b2', 'Bimestre 2', ['class' => 'nombre_form']) !!}
+                {!! Form::text('b2', null, ['class' => 'form-control', 'placeholder' => 'Ingrese si pagó el segundo bimestre']) !!}
+
+                @error('b2')
+                    <span class="text-danger">{{$message}}</span>
+                @enderror
+            </div>
+
+            <div class="form-group">
+                {!! Form::label('b3', 'Bimestre 3', ['class' => 'nombre_form']) !!}
+                {!! Form::text('b3', null, ['class' => 'form-control', 'placeholder' => 'Ingrese si pagó el tercer bimestre']) !!}
+
+                @error('b3')
+                    <span class="text-danger">{{$message}}</span>
+                @enderror
+            </div>
+
+
+            <div class="form-group">
+                {!! Form::label('b4', 'Bimestre 4', ['class' => 'nombre_form']) !!}
+                {!! Form::text('b4', null, ['class' => 'form-control', 'placeholder' => 'Ingrese si pagó el cuarto bimestre']) !!}
+
+                @error('b4')
+                    <span class="text-danger">{{$message}}</span>
+                @enderror
+            </div>
 
             <div class="form-group">
                 {!! Form::submit('Actualizar', ['class' => 'btn btn-primary']) !!}

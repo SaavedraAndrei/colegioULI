@@ -12,8 +12,6 @@ use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
-
-    
     /**
      * Display a listing of the resource.
      *
@@ -56,7 +54,6 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
@@ -70,9 +67,7 @@ class UserController extends Controller
             'password' => Hash::make($request->password),
             'rol' => $request->rol,
         ]);
-
         return redirect()->route('users.index', $user)->with('info', 'Se registró nuevo usuario correctamente');
-
     }
 
     /**

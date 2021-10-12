@@ -24,8 +24,6 @@ class AlumnoController extends Controller
     {
         $alumnos = Alumno::all();
 
-        
-
         return view('alumnos.index', compact('alumnos'));
     }
 
@@ -43,11 +41,14 @@ class AlumnoController extends Controller
         ];
 
         $secciones = [
+            'cuatro-inicial' => 'Cuatro años',
+            'cinco-inicial' => 'Cinco años',
             'primero-A' => 'Primero-A',
             'segundo-A' => 'Segundo-A',
             'tercero-A' => 'Tercero-A',
             'cuarto-A' => 'Cuarto-A',
             'quinto-A' => 'Quinto-A',
+            'sexto-A' => 'Sexto-A',
         ];
 
         $generos = [
@@ -127,11 +128,14 @@ class AlumnoController extends Controller
         ];
 
         $secciones = [
+            'cuatro-inicial' => 'Cuatro años',
+            'cinco-inicial' => 'Cinco años',
             'primero-A' => 'Primero-A',
             'segundo-A' => 'Segundo-A',
             'tercero-A' => 'Tercero-A',
             'cuarto-A' => 'Cuarto-A',
             'quinto-A' => 'Quinto-A',
+            'sexto-A' => 'Sexto-A',
         ];
 
         return view('alumnos.edit', compact('alumno', 'generos', 'niveles', 'secciones'));
@@ -156,6 +160,10 @@ class AlumnoController extends Controller
             'seccion' => 'required',
             'estado' => 'required',
             'montoPagado' => 'required',
+            'b1' => 'required',
+            'b2' => 'required',
+            'b3' => 'required',
+            'b4' => 'required',
         ]);
 
         $alumno->update($request->all());
@@ -166,10 +174,11 @@ class AlumnoController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $aAlumno lumno
+     * @param  int  $Alumno alumno
      * @return \Illuminate\Http\Response
      */
     public function destroy(Alumno $alumno)
     {
+        
     }
 }

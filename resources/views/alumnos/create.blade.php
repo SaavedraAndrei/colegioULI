@@ -77,7 +77,15 @@
                     <span class="text-danger">{{$message}}</span>
                 @enderror
             </div>
-               
+
+            <div class="form-group">
+                {!! Form::label('celular', 'Número de celular', ['class' => 'nombre_form']) !!}
+                {!! Form::text('celular', null, ['class' => 'form-control', 'placeholder' => 'Ingrese el número de celular del alumno']) !!}
+
+                @error('celular')
+                    <span class="text-danger">{{$message}}</span>
+                @enderror
+            </div>
 
             <div class="form-group">
                 {!! Form::submit('Registrar alumno', ['class' => 'btn btn-primary']) !!}

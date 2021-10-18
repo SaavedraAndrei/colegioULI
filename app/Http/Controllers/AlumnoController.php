@@ -10,7 +10,6 @@ use Illuminate\Support\Facades\DB;
 
 class AlumnoController extends Controller
 {
-
     public function __construct(){
         $this->middleware('auth');
     }
@@ -23,10 +22,8 @@ class AlumnoController extends Controller
     public function index()
     {
         $alumnos = Alumno::all();
-
         return view('alumnos.index', compact('alumnos'));
     }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -58,7 +55,6 @@ class AlumnoController extends Controller
 
         return view('alumnos.create', compact('generos', 'niveles', 'secciones'));
     }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -74,7 +70,8 @@ class AlumnoController extends Controller
             'dni' => 'required|unique:alumnos',
             'genero' => 'required',
             'nivel' => 'required',
-            'seccion' => 'required'
+            'seccion' => 'required',
+            'celular' => 'required',
         ]);
 
         // $alumno = Alumno::create($request->all());
@@ -90,6 +87,7 @@ class AlumnoController extends Controller
             'genero' => $request->genero,
             'nivel' => $request->nivel,
             'seccion' => $request->seccion,
+            'celular' => $request->celular,
             'estado' => 'activo',
             'id' => $idNuevo,
         ]);
@@ -140,7 +138,7 @@ class AlumnoController extends Controller
 
         return view('alumnos.edit', compact('alumno', 'generos', 'niveles', 'secciones'));
     }
-
+    
     /**
      * Update the specified resource in storage.
      *
@@ -148,6 +146,7 @@ class AlumnoController extends Controller
      * @param  int  $aAlumno lumno
      * @return \Illuminate\Http\Response
      */
+
     public function update(Request $request, Alumno $alumno)
     {
         $request->validate([
@@ -158,6 +157,7 @@ class AlumnoController extends Controller
             'genero' => 'required',
             'nivel' => 'required',
             'seccion' => 'required',
+            'celular' => 'required',
             'estado' => 'required',
             'montoPagado' => 'required',
             'b1' => 'required',

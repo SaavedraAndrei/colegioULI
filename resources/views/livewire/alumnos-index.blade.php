@@ -39,6 +39,7 @@
                             <th>Género</th>
                             <th>Nivel</th>
                             <th>Sección</th>
+                            <th>Celular</th>
                             <th>Estado</th>
                             <th>Monto Pagado</th>
                             <th>B1</th>
@@ -49,6 +50,7 @@
                     </thead>
 
                     <tbody>
+                        
                         @foreach ($alumnos as $alumno)
                             <tr>
                                 <td>{{$alumno->dni}}</td>
@@ -58,6 +60,7 @@
                                 <td>{{$alumno->genero}}</td>
                                 <td>{{$alumno->nivel}}</td>
                                 <td>{{$alumno->seccion}}</td>
+                                <td>{{$alumno->celular}}</td>
                                 <td>{{$alumno->estado}}</td>
                                 <td>{{$alumno->montoPagado}}</td>
                                 <td>{{$alumno->b1}}</td>

@@ -269,6 +269,27 @@ return [
             'route' => 'personals.index',
             'icon' => 'fas fa-fw fa-briefcase',
         ],
+        ['header' => 'Recordatorio pensiones'],
+        [
+            'text' => 'Recordatorio B1',
+            'route' => 'recordatorio1',
+            'icon' => 'fas fa-fw fa-donate',
+        ],
+        [
+            'text' => 'Recordatorio B2',
+            'route' => 'recordatorio2',
+            'icon' => 'fas fa-fw fa-donate',
+        ],
+        [
+            'text' => 'Recordatorio B3',
+            'route' => 'recordatorio3',
+            'icon' => 'fas fa-fw fa-donate',
+        ],
+        [
+            'text' => 'Recordatorio B4',
+            'route' => 'recordatorio4',
+            'icon' => 'fas fa-fw fa-donate',
+        ],
     ],
 
     /*

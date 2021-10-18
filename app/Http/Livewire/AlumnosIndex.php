@@ -36,6 +36,7 @@ class AlumnosIndex extends Component
                 'genero',
                 'nivel',
                 'seccion',
+                'celular',
                 'estado',
                 'montoPagado',
                 'b1',

@@ -15,7 +15,7 @@ class RecordatorioExport2 implements FromCollection
     {
         $resultados2 = DB::table('Alumnos')
         ->where('b2','NO')
-        ->select('dni','Nombres','ApellPaterno','ApellMaterno','nivel','seccion','b2')
+        ->select('dni','Nombres','ApellPaterno','ApellMaterno','nivel','seccion','celular','b2')
         ->get();
 
         return $resultados2;

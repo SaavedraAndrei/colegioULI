@@ -38,6 +38,7 @@ class AlumnoController extends Controller
         ];
 
         $secciones = [
+            'tres-inicial' => 'Tres años',
             'cuatro-inicial' => 'Cuatro años',
             'cinco-inicial' => 'Cinco años',
             'primero-A' => 'Primero-A',
@@ -71,7 +72,6 @@ class AlumnoController extends Controller
             'genero' => 'required',
             'nivel' => 'required',
             'seccion' => 'required',
-            'celular' => 'required',
         ]);
 
         // $alumno = Alumno::create($request->all());
@@ -126,6 +126,7 @@ class AlumnoController extends Controller
         ];
 
         $secciones = [
+            'tres-inicial' => 'Tres años',
             'cuatro-inicial' => 'Cuatro años',
             'cinco-inicial' => 'Cinco años',
             'primero-A' => 'Primero-A',
@@ -157,7 +158,6 @@ class AlumnoController extends Controller
             'genero' => 'required',
             'nivel' => 'required',
             'seccion' => 'required',
-            'celular' => 'required',
             'estado' => 'required',
             'montoPagado' => 'required',
             'b1' => 'required',

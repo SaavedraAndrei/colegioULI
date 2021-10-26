@@ -14,8 +14,8 @@ class RecordatorioExport4 implements FromCollection
     public function collection()
     {
         $resultados4 = DB::table('Alumnos')
-        ->where('b4','NO')
-        ->select('dni','Nombres','ApellPaterno','ApellMaterno','nivel','seccion','celular','b4')
+        ->where('p4','NO')
+        ->select('dni','Nombres','ApellPaterno','ApellMaterno','celular','p4')
         ->get();
 
         return $resultados4;

@@ -107,38 +107,92 @@
             </div>
 
             <div class="form-group">
-                {!! Form::label('b1', 'Bimestre 1', ['class' => 'nombre_form']) !!}
-                {!! Form::text('b1', null, ['class' => 'form-control', 'placeholder' => 'Ingrese si pagó el primer bimestre']) !!}
+                {!! Form::label('p1', 'Pensión de Marzo', ['class' => 'nombre_form']) !!}
+                {!! Form::text('p1', null, ['class' => 'form-control', 'placeholder' => 'Ingrese si pagó la pensión']) !!}
 
-                @error('b1')
+                @error('p1')
                     <span class="text-danger">{{$message}}</span>
                 @enderror
             </div>
 
             <div class="form-group">
-                {!! Form::label('b2', 'Bimestre 2', ['class' => 'nombre_form']) !!}
-                {!! Form::text('b2', null, ['class' => 'form-control', 'placeholder' => 'Ingrese si pagó el segundo bimestre']) !!}
+                {!! Form::label('p2', 'Pensión de Abril', ['class' => 'nombre_form']) !!}
+                {!! Form::text('p2', null, ['class' => 'form-control', 'placeholder' => 'Ingrese si pagó la pensión']) !!}
 
-                @error('b2')
+                @error('p2')
                     <span class="text-danger">{{$message}}</span>
                 @enderror
             </div>
 
             <div class="form-group">
-                {!! Form::label('b3', 'Bimestre 3', ['class' => 'nombre_form']) !!}
-                {!! Form::text('b3', null, ['class' => 'form-control', 'placeholder' => 'Ingrese si pagó el tercer bimestre']) !!}
+                {!! Form::label('p3', 'Pensión de Mayo', ['class' => 'nombre_form']) !!}
+                {!! Form::text('p3', null, ['class' => 'form-control', 'placeholder' => 'Ingrese si pagó la pensión']) !!}
 
-                @error('b3')
+                @error('p3')
                     <span class="text-danger">{{$message}}</span>
                 @enderror
             </div>
 
 
             <div class="form-group">
-                {!! Form::label('b4', 'Bimestre 4', ['class' => 'nombre_form']) !!}
-                {!! Form::text('b4', null, ['class' => 'form-control', 'placeholder' => 'Ingrese si pagó el cuarto bimestre']) !!}
+                {!! Form::label('p4', 'Pensión de Junio', ['class' => 'nombre_form']) !!}
+                {!! Form::text('p4', null, ['class' => 'form-control', 'placeholder' => 'Ingrese si pagó la pensión']) !!}
 
-                @error('b4')
+                @error('p4')
+                    <span class="text-danger">{{$message}}</span>
+                @enderror
+            </div>
+
+            <div class="form-group">
+                {!! Form::label('p5', 'Pensión de Julio', ['class' => 'nombre_form']) !!}
+                {!! Form::text('p5', null, ['class' => 'form-control', 'placeholder' => 'Ingrese si pagó la pensión']) !!}
+
+                @error('p5')
+                    <span class="text-danger">{{$message}}</span>
+                @enderror
+            </div>
+
+            <div class="form-group">
+                {!! Form::label('p6', 'Pensión de Agosto', ['class' => 'nombre_form']) !!}
+                {!! Form::text('p6', null, ['class' => 'form-control', 'placeholder' => 'Ingrese si pagó la pensión']) !!}
+
+                @error('p6')
+                    <span class="text-danger">{{$message}}</span>
+                @enderror
+            </div>
+
+            <div class="form-group">
+                {!! Form::label('p7', 'Pensión de Setiembre', ['class' => 'nombre_form']) !!}
+                {!! Form::text('p7', null, ['class' => 'form-control', 'placeholder' => 'Ingrese si pagó la pensión']) !!}
+
+                @error('p7')
+                    <span class="text-danger">{{$message}}</span>
+                @enderror
+            </div>
+
+            <div class="form-group">
+                {!! Form::label('p8', 'Pensión de Octubre', ['class' => 'nombre_form']) !!}
+                {!! Form::text('p8', null, ['class' => 'form-control', 'placeholder' => 'Ingrese si pagó la pensión']) !!}
+
+                @error('p8')
+                    <span class="text-danger">{{$message}}</span>
+                @enderror
+            </div>
+
+            <div class="form-group">
+                {!! Form::label('p9', 'Pensión de Noviembre', ['class' => 'nombre_form']) !!}
+                {!! Form::text('p9', null, ['class' => 'form-control', 'placeholder' => 'Ingrese si pagó la pensión']) !!}
+
+                @error('p9')
+                    <span class="text-danger">{{$message}}</span>
+                @enderror
+            </div>
+
+            <div class="form-group">
+                {!! Form::label('p10', 'Pensión de Diciembre', ['class' => 'nombre_form']) !!}
+                {!! Form::text('p10', null, ['class' => 'form-control', 'placeholder' => 'Ingrese si pagó la pensión']) !!}
+
+                @error('p10')
                     <span class="text-danger">{{$message}}</span>
                 @enderror
             </div>

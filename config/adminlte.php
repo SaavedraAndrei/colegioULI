@@ -271,23 +271,53 @@ return [
         ],
         ['header' => 'Recordatorio pensiones'],
         [
-            'text' => 'Recordatorio B1',
+            'text' => 'Recordatorio P1',
             'route' => 'recordatorio1',
             'icon' => 'fas fa-fw fa-donate',
         ],
         [
-            'text' => 'Recordatorio B2',
+            'text' => 'Recordatorio P2',
             'route' => 'recordatorio2',
             'icon' => 'fas fa-fw fa-donate',
         ],
         [
-            'text' => 'Recordatorio B3',
+            'text' => 'Recordatorio P3',
             'route' => 'recordatorio3',
             'icon' => 'fas fa-fw fa-donate',
         ],
         [
-            'text' => 'Recordatorio B4',
+            'text' => 'Recordatorio P4',
             'route' => 'recordatorio4',
+            'icon' => 'fas fa-fw fa-donate',
+        ],
+        [
+            'text' => 'Recordatorio P5',
+            'route' => 'recordatorio5',
+            'icon' => 'fas fa-fw fa-donate',
+        ],
+        [
+            'text' => 'Recordatorio P6',
+            'route' => 'recordatorio6',
+            'icon' => 'fas fa-fw fa-donate',
+        ],
+        [
+            'text' => 'Recordatorio P7',
+            'route' => 'recordatorio7',
+            'icon' => 'fas fa-fw fa-donate',
+        ],
+        [
+            'text' => 'Recordatorio P8',
+            'route' => 'recordatorio8',
+            'icon' => 'fas fa-fw fa-donate',
+        ],
+        [
+            'text' => 'Recordatorio P9',
+            'route' => 'recordatorio9',
+            'icon' => 'fas fa-fw fa-donate',
+        ],
+        [
+            'text' => 'Recordatorio P10',
+            'route' => 'recordatorio10',
             'icon' => 'fas fa-fw fa-donate',
         ],
     ],

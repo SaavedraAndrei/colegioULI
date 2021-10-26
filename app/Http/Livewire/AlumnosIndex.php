@@ -39,10 +39,6 @@ class AlumnosIndex extends Component
                 'celular',
                 'estado',
                 'montoPagado',
-                'b1',
-                'b2',
-                'b3',
-                'b4'
             )
             ->where('ApellPaterno', 'LIKE', '%' . $this->search . '%')
             ->orderBy('id', 'desc')

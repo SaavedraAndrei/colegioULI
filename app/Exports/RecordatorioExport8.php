@@ -6,20 +6,18 @@ use Maatwebsite\Excel\Concerns\FromCollection;
 use Illuminate\Support\Facades\DB;
 
 
-class RecordatorioExport1 implements FromCollection
+class RecordatorioExport8 implements FromCollection
 {
     /**
     * @return \Illuminate\Support\Collection
     */
     public function collection()
     {
-
-        $resultados1 = DB::table('Alumnos')
-        ->where('p1','NO')
-        ->select('dni','Nombres','ApellPaterno','ApellMaterno','celular','p1')
+        $resultados8 = DB::table('Alumnos')
+        ->where('p8','NO')
+        ->select('dni','Nombres','ApellPaterno','ApellMaterno','celular','p8')
         ->get();
 
-        return $resultados1;
+        return $resultados8;
     }
-
 }

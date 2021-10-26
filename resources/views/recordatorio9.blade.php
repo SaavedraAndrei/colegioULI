@@ -12,7 +12,7 @@
         <div class="card">
 
             <div class="card-header">
-                <a href="/export2" class="btn btn-primary">Exportar tabla</a>
+                <a href="/export9" class="btn btn-primary">Exportar tabla</a>
             </div>
 
             <div class="card-body">
@@ -26,19 +26,19 @@
                             <th>Apellido Paterno</th>
                             <th>Apellido Materno</th>
                             <th>Celular</th>
-                            <th>P2</th>
+                            <th>P9</th>
                         </tr>
                     </thead>
     
                     <tbody>
-                        @foreach ($resultados2 as $resultados)
+                        @foreach ($resultados9 as $resultados)
                             <tr>
                                 <td>{{$resultados->dni}}</td>
                                 <td>{{$resultados->Nombres}}</td>
                                 <td>{{$resultados->ApellPaterno}}</td>
                                 <td>{{$resultados->ApellMaterno}}</td>
                                 <td>{{$resultados->celular}}</td>
-                                <td>{{$resultados->p2}}</td>
+                                <td>{{$resultados->p9}}</td>
                             </tr>
                         @endforeach
                         

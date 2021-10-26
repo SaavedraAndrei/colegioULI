@@ -55,11 +55,25 @@ Route::GET('/recordatorio1', [RecordatorioController::class, 'index1'])->name('r
 Route::GET('/recordatorio2', [RecordatorioController::class, 'index2'])->name('recordatorio2');
 Route::GET('/recordatorio3', [RecordatorioController::class, 'index3'])->name('recordatorio3');
 Route::GET('/recordatorio4', [RecordatorioController::class, 'index4'])->name('recordatorio4');
+Route::GET('/recordatorio5', [RecordatorioController::class, 'index5'])->name('recordatorio5');
+Route::GET('/recordatorio6', [RecordatorioController::class, 'index6'])->name('recordatorio6');
+Route::GET('/recordatorio7', [RecordatorioController::class, 'index7'])->name('recordatorio7');
+Route::GET('/recordatorio8', [RecordatorioController::class, 'index8'])->name('recordatorio8');
+Route::GET('/recordatorio9', [RecordatorioController::class, 'index9'])->name('recordatorio9');
+Route::GET('/recordatorio10', [RecordatorioController::class, 'index10'])->name('recordatorio10');
+
 
 Route::GET('/export1', [RecordatorioController::class, 'export1'])->name('export1');
 Route::GET('/export2', [RecordatorioController::class, 'export2'])->name('export2');
 Route::GET('/export3', [RecordatorioController::class, 'export3'])->name('export3');
 Route::GET('/export4', [RecordatorioController::class, 'export4'])->name('export4');
+Route::GET('/export5', [RecordatorioController::class, 'export5'])->name('export5');
+Route::GET('/export6', [RecordatorioController::class, 'export6'])->name('export6');
+Route::GET('/export7', [RecordatorioController::class, 'export7'])->name('export7');
+Route::GET('/export8', [RecordatorioController::class, 'export8'])->name('export8');
+Route::GET('/export9', [RecordatorioController::class, 'export9'])->name('export9');
+Route::GET('/export10', [RecordatorioController::class, 'export10'])->name('export10');
+
 
 
 

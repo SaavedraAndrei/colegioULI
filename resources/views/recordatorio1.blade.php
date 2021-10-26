@@ -25,10 +25,8 @@
                             <th>Nombres</th>
                             <th>Apellido Paterno</th>
                             <th>Apellido Materno</th>
-                            <th>Nivel</th>
-                            <th>Sección</th>
                             <th>Celular</th>
-                            <th>B1</th>
+                            <th>P1</th>
                         </tr>
                     </thead>
     
@@ -39,10 +37,8 @@
                                 <td>{{$resultados->Nombres}}</td>
                                 <td>{{$resultados->ApellPaterno}}</td>
                                 <td>{{$resultados->ApellMaterno}}</td>
-                                <td>{{$resultados->nivel}}</td>
-                                <td>{{$resultados->seccion}}</td>
                                 <td>{{$resultados->celular}}</td>
-                                <td>{{$resultados->b1}}</td>
+                                <td>{{$resultados->p1}}</td>
                             </tr>
                         @endforeach
                         

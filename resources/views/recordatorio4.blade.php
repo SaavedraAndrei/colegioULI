@@ -10,12 +10,14 @@
     <div class="centrar">
 
         <div class="card">
+
             <div class="card-header">
                 <a href="/export4" class="btn btn-primary">Exportar tabla</a>
             </div>
 
             <div class="card-body">
 
+    
                 <table class="table table-striped">
                     <thead>
                         <tr>
@@ -23,10 +25,8 @@
                             <th>Nombres</th>
                             <th>Apellido Paterno</th>
                             <th>Apellido Materno</th>
-                            <th>Nivel</th>
-                            <th>Sección</th>
                             <th>Celular</th>
-                            <th>B4</th>
+                            <th>P4</th>
                         </tr>
                     </thead>
     
@@ -37,10 +37,8 @@
                                 <td>{{$resultados->Nombres}}</td>
                                 <td>{{$resultados->ApellPaterno}}</td>
                                 <td>{{$resultados->ApellMaterno}}</td>
-                                <td>{{$resultados->nivel}}</td>
-                                <td>{{$resultados->seccion}}</td>
                                 <td>{{$resultados->celular}}</td>
-                                <td>{{$resultados->b4}}</td>
+                                <td>{{$resultados->p4}}</td>
                             </tr>
                         @endforeach
                         
@@ -48,8 +46,7 @@
                 </table>
             </div>
         </div>
-
-       
+        
     </div>
 @stop
 

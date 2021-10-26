@@ -160,10 +160,16 @@ class AlumnoController extends Controller
             'seccion' => 'required',
             'estado' => 'required',
             'montoPagado' => 'required',
-            'b1' => 'required',
-            'b2' => 'required',
-            'b3' => 'required',
-            'b4' => 'required',
+            'p1' => 'required',
+            'p2' => 'required',
+            'p3' => 'required',
+            'p4' => 'required',
+            'p5' => 'required',
+            'p6' => 'required',
+            'p7' => 'required',
+            'p8' => 'required',
+            'p9' => 'required',
+            'p10' => 'required',
         ]);
 
         $alumno->update($request->all());

@@ -554,6 +554,8 @@
         var productos5=[];
         var valores13 = [];
         var valores14= [];
+        var valores15= [];
+
         $(document).ready(function(){
 
             $.ajax({
@@ -578,6 +580,8 @@
                 }
                 valores13.push(arreglo5[0].MontoTotal)
                 valores14.push(arreglo5[1].MontoTotal)
+                valores15.push(arreglo5[2].MontoTotal)
+
                 generarGrafica5();
             })
         })
@@ -607,6 +611,18 @@
                         ],
                         borderColor: [
                             'rgba(54, 162, 235, 1)',
+                            
+                        ],
+                        borderWidth: 1
+                    }, {
+                        label: 'Tres',
+                        data: valores15,
+                        backgroundColor: [
+                            'rgba(87, 87, 87, 0.2)',
+                            
+                        ],
+                        borderColor: [
+                            'rgba(87, 87, 87, 1)',
                             
                         ],
                         borderWidth: 1

@@ -78,6 +78,7 @@ class AlumnoController extends Controller
         $idNuevo = 0;
         $idActual = Alumno::max('id');
         $idNuevo = $idActual + 1;
+
         
         $alumno = Alumno::create([
             'Nombres' => $request->Nombres,

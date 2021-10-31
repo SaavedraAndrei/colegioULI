@@ -79,7 +79,7 @@
             </div>
 
             <div class="form-group">
-                {!! Form::label('celular', 'Número de celular', ['class' => 'nombre_form']) !!}
+                {!! Form::label('celular', 'Número de celular (Agrege el código 51 al inicio de cada número de celular. Ejm 51965343214)', ['class' => 'nombre_form']) !!}
                 {!! Form::text('celular', null, ['class' => 'form-control', 'placeholder' => 'Ingrese el número de celular del alumno']) !!}
 
                 @error('celular')

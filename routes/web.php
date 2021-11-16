@@ -49,6 +49,9 @@ Route::POST('/consulta/all1', [ConsultaController::class, 'all1'])->name('all1')
 Route::POST('/consulta/all3', [ConsultaController::class, 'all3'])->name('all3');
 Route::POST('/consulta/all4', [ConsultaController::class, 'all4'])->name('all4');
 Route::POST('/consulta/all5', [ConsultaController::class, 'all5'])->name('all5');
+Route::POST('/consulta/all6', [ConsultaController::class, 'all6'])->name('all6');
+Route::POST('/consulta/all7', [ConsultaController::class, 'all7'])->name('all7');
+
 
 // Recordatorio de pensiones
 Route::GET('/recordatorio1', [RecordatorioController::class, 'index1'])->name('recordatorio1');

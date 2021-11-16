@@ -50,10 +50,10 @@
 
             <div class="form-group">
                 
-                {!! Form::label('Tipo', 'Área a la que pertenece') !!}
-                {!! Form::select('Tipo', $tipos, null, ['class' => 'form-control', 'placeholder' => 'Seleccione']) !!}                
+                {!! Form::label('tipo', 'Tipo de personal') !!}
+                {!! Form::select('tipo', $tipos, null, ['class' => 'form-control', 'placeholder' => 'Seleccione el tipo de personal']) !!}                
 
-                @error('Tipo')
+                @error('tipo')
                     <span class="text-danger">{{$message}}</span>
                 @enderror
             </div>

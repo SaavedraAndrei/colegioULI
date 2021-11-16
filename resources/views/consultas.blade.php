@@ -47,6 +47,61 @@
             </div> 
         </div>
 
+
+        <div class="tabla1">
+            <h1 class="titulo-tabla">Ingresos por Número de Mes</h1>
+            
+            <div class="prueba-grid">
+                <div class="text-grid">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Mes</th>
+                                <th>Monto Total</th>
+                            </tr>
+                        </thead>
+                
+                        <tbody id="tbody6">
+                            
+                        </tbody>
+                    </table>
+                </div>
+    
+                <div class="grafica-grid">
+                    <div class="row col-8 tabla-grafica">
+                        <canvas id="myChart6" width="100" height="100"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tabla1">
+            <h1 class="titulo-tabla">Egresos por Número de Mes</h1>
+            
+            <div class="prueba-grid">
+                <div class="text-grid">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Mes</th>
+                                <th>Monto Total</th>
+                            </tr>
+                        </thead>
+                
+                        <tbody id="tbody7">
+                            
+                        </tbody>
+                    </table>
+                </div>
+    
+                <div class="grafica-grid">
+                    <div class="row col-8 tabla-grafica">
+                        <canvas id="myChart7" width="100" height="100"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div class="tabla1">
             <h1 class="titulo-tabla">Ingresos Sección - Secundaria</h1>
             
@@ -237,6 +292,152 @@
 
     <script>
 
+        var valores16= [];
+        var valores17= [];
+        var valores18= [];
+        var valores19= [];
+        var valores20= [];
+
+        $(document).ready(function(){
+
+            $.ajax({
+                url: '/consulta/all6',
+                method: 'POST',
+                data:{
+                    id: 1,
+                    _token: $('input[name="_token"]').val()
+                } 
+            }).done(function(res){
+                var arreglo6 = JSON.parse(res);
+                console.log(arreglo6);
+
+                for(var x=0;x<arreglo6.length;x++){
+
+                    var todo = '<tr><td>'+arreglo6[x].Mes + '</td>';
+                    todo += '<td>' +arreglo6[x].MontoTotal+ '</td>';
+                    todo += '<td></td></tr>';
+
+                    $('#tbody6').append(todo);
+                }
+                valores16.push(arreglo6[0].MontoTotal);
+                valores17.push(arreglo6[1].MontoTotal);
+                // valores18.push(arreglo6[2].MontoTotal)
+                // valores19.push(arreglo6[3].MontoTotal)
+                // valores20.push(arreglo6[4].MontoTotal)
+                generarGrafica6();
+            })
+        })
+
+        function generarGrafica6(){
+            var ctx = document.getElementById('myChart6').getContext('2d');
+            var myChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['INGRESOS POR NÚMERO DE MES'],
+                    datasets: [{
+                        label: '10',
+                        data: valores16,
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 0.2)',
+                        ],
+                        borderColor: [
+                            'rgba(255, 99, 132, 1)',
+                        ],
+                        borderWidth: 1
+                    }, {
+                        label: '11',
+                        data: valores17,
+                        backgroundColor: [
+                            'rgba(54, 162, 235, 0.2)',
+                        ],
+                        borderColor: [
+                            'rgba(54, 162, 235, 1)',
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        }
+
+        
+    </script>
+
+    <script>
+
+        var valores19= [];
+        var valores20= [];
+
+        $(document).ready(function(){
+
+            $.ajax({
+                url: '/consulta/all7',
+                method: 'POST',
+                data:{
+                    id: 1,
+                    _token: $('input[name="_token"]').val()
+                } 
+            }).done(function(res){
+                var arreglo7 = JSON.parse(res);
+                console.log(arreglo7);
+
+                for(var x=0;x<arreglo7.length;x++){
+
+                    var todo = '<tr><td>'+arreglo7[x].Mes + '</td>';
+                    todo += '<td>' +arreglo7[x].MontoTotal+ '</td>';
+                    todo += '<td></td></tr>';
+
+                    $('#tbody7').append(todo);
+                }
+                valores19.push(arreglo7[0].MontoTotal);
+                // valores20.push(arreglo7[1].MontoTotal);
+                // valores18.push(arreglo7[2].MontoTotal)
+                // valores19.push(arreglo7[3].MontoTotal)
+                // valores20.push(arreglo7[4].MontoTotal)
+                generarGrafica7();
+            })
+            
+        })
+
+        function generarGrafica7(){
+            var ctx = document.getElementById('myChart7').getContext('2d');
+            var myChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['EGRESOS POR NÚMERO DE MES'],
+                    datasets: [{
+                        label: '11',
+                        data: valores16,
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 0.2)',
+                        ],
+                        borderColor: [
+                            'rgba(255, 99, 132, 1)',
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        }
+
+
+    </script>
+
+    <script>
+
         var productos2=[];
         var valores2 = [];
         var valores3 = [];
@@ -349,6 +550,8 @@
         var valoresx = [];
         var valoresz = [];
         var valoresy = [];
+        var valoresy1 = [];
+
         $(document).ready(function(){
 
             $.ajax({
@@ -374,6 +577,8 @@
                 valoresx.push(arreglo3[0].MontoTotal)
                 valoresz.push(arreglo3[1].MontoTotal)
                 valoresy.push(arreglo3[2].MontoTotal)
+                valoresy1.push(arreglo3[3].MontoTotal)
+
                 generarGrafica3();
             })
         })
@@ -412,6 +617,16 @@
                         ],
                         borderColor: [
                             'rgba(255, 206, 86, 1)',
+                        ],
+                        borderWidth: 1
+                    }, {
+                        label: 'Otros',
+                        data: valoresy1,
+                        backgroundColor: [
+                            'rgba(75, 192, 192, 0.2)',
+                        ],
+                        borderColor: [
+                            'rgba(75, 192, 192, 1)',
                         ],
                         borderWidth: 1
                     }]

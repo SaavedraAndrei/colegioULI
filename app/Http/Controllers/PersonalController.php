@@ -36,6 +36,7 @@ class PersonalController extends Controller
             'docente' => 'Docente',
             'administrativo' => 'Administrativo',
             'limpieza' => 'Limpieza',
+            'otros' => 'Otros'
         ];
 
         return view('personals.create', compact('tipos'));
@@ -98,9 +99,10 @@ class PersonalController extends Controller
             'docente' => 'Docente',
             'administrativo' => 'Administrativo',
             'limpieza' => 'Limpieza',
+            'otros' => 'Otros'
         ];
 
-        return view('personals.edit', compact('tipos', 'personal'));
+        return view('personals.edit', compact('personal','tipos'));
     }
 
     /**
@@ -117,7 +119,7 @@ class PersonalController extends Controller
             'ApellPaterno' => 'required',
             'ApellMaterno' => 'required',
             'dni' => 'required',
-            'Tipo' => 'required',
+            'tipo' => 'required',
             'estado' => 'required',
             'montoPagado' => 'required'
         ]);

@@ -51,6 +51,27 @@ class ConsultaController extends Controller
         return response(json_encode($resultados), 200)->header('Content-type', 'text/plain');
     }
 
+    public function all6()
+    {
+        
+       $resultados6 = DB::table('Ingresos')
+        ->select(DB::raw('MONTH(created_at) AS Mes'),DB::raw('SUM(pago) AS MontoTotal'))
+        ->groupBy('Mes')
+        ->get();
+
+        return response(json_encode($resultados6), 200)->header('Content-type', 'text/plain');
+    }
+
+    public function all7()
+    {
+       $resultados7 = DB::table('Egresos')
+        ->select(DB::raw('MONTH(created_at) AS Mes'),DB::raw('SUM(pago) AS MontoTotal'))
+        ->groupBy('Mes')
+        ->get();
+        
+        return response(json_encode($resultados7), 200)->header('Content-type', 'text/plain');
+    }
+
     public function all1()
     {
         // GRAFICA PARA PAGOS DE NIVEL SECUNDARIA POR SECCIONES

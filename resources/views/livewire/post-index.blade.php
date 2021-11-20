@@ -40,6 +40,7 @@
                         </tr>
                     </thead>
 
+
                     <tbody>
                         @foreach ($ingresos as $ingreso)
                             <tr>
@@ -50,6 +51,11 @@
                                 <td>{{$ingreso->created_at}}</td>
                                 <td>{{$ingreso->pago}}</td>
                                 <td>{{$ingreso->idPersonal}}</td>
+
+                                <td width="10px">
+                                    <a class="btn btn-primary" href="{{route('factura', ['id' => $ingreso->id ])}}">Factura</a>
+                                </td>
+                                
 
                                 @if ($id == 1)
                                     <td width="10px">

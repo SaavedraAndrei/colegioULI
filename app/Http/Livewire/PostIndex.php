@@ -6,6 +6,8 @@ use Livewire\Component;
 use Illuminate\Support\Facades\DB;
 use Livewire\WithPagination;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Ingreso;
+
 
 
 
@@ -24,6 +26,7 @@ class PostIndex extends Component
 
     public function render()
     {
+
         $ingresos = DB::table('Ingresos')
             ->leftjoin('Alumnos', 'Ingresos.dniAlumno', '=', 'Alumnos.dni')
             ->select(

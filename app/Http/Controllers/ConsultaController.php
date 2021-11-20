@@ -53,12 +53,10 @@ class ConsultaController extends Controller
 
     public function all6()
     {
-        
        $resultados6 = DB::table('Ingresos')
         ->select(DB::raw('MONTH(created_at) AS Mes'),DB::raw('SUM(pago) AS MontoTotal'))
         ->groupBy('Mes')
         ->get();
-
         return response(json_encode($resultados6), 200)->header('Content-type', 'text/plain');
     }
 
@@ -111,7 +109,6 @@ class ConsultaController extends Controller
         ->get();
         return response(json_encode($resultados4), 200)->header('Content-type', 'text/plain');
     }
-
 
     public function all5()
     {

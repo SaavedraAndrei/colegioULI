@@ -10,6 +10,8 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\PersonalController;
 use App\Http\Controllers\ConsultaController;
 use App\Http\Controllers\RecordatorioController;
+use App\Http\Controllers\FacturaController;
+
 
 
 
@@ -41,6 +43,11 @@ Route::resource('egresos', EgresoController::class)->names('egresos');
 
 
 Route::resource('personals', PersonalController::class)->names('personals');
+
+
+// Factura
+Route::GET('/factura', [FacturaController::class, 'index'])->name('factura');
+
 
 // Reportes
 Route::GET('/consulta', [ConsultaController::class, 'index'])->name('consulta');

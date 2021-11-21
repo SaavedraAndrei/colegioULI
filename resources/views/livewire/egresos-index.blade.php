@@ -48,6 +48,12 @@
                                 <td>{{$egreso->created_at}}</td>
                                 <td>{{$egreso->pago}}</td>
                                 <td>{{$egreso->idPersonal}}</td>
+
+                                <td width="10px">
+                                    <a class="btn btn-primary" href="{{route('facturaeg', ['id' => $egreso->id ])}}">Factura</a>
+                                </td>
+
+
                                 @if ($id == 1)
                                     <td width="10px">
                                         <form action="{{route('egresos.destroy', $egreso->id, $egreso->dniPersonal, $egreso->pago)}}" method="POST">

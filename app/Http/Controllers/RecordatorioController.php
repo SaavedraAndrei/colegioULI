@@ -8,6 +8,13 @@ use App\Exports\RecordatorioExport1;
 use App\Exports\RecordatorioExport2;
 use App\Exports\RecordatorioExport3;
 use App\Exports\RecordatorioExport4;
+use App\Exports\RecordatorioExport5;
+use App\Exports\RecordatorioExport6;
+use App\Exports\RecordatorioExport7;
+use App\Exports\RecordatorioExport8;
+use App\Exports\RecordatorioExport9;
+use App\Exports\RecordatorioExport10;
+
 use Maatwebsite\Excel\Facades\Excel;
 
 class RecordatorioController extends Controller

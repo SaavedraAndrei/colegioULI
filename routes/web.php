@@ -47,6 +47,8 @@ Route::resource('personals', PersonalController::class)->names('personals');
 
 // Factura
 Route::GET('/factura', [FacturaController::class, 'index'])->name('factura');
+Route::GET('/facturaeg', [FacturaController::class, 'eg'])->name('facturaeg');
+
 
 
 // Reportes
